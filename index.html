@@ -1,0 +1,767 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>node-resque</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">node-resque</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> node-resque</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#node-resque-the-best-background-jobs-in-node" id="node-resque-the-best-background-jobs-in-node" style="color: inherit; text-decoration: none;">
+					<h1>node-resque: The best background jobs in node.</h1>
+				</a>
+				<p><strong>Distributed delayed jobs in nodejs</strong>. Resque is a background job system backed by <a href="http://redis.io">Redis</a> (version 2.0.0 and up required). It includes priority queues, plugins, locking, delayed jobs, and more! This project is a very opinionated but API-compatible with <a href="https://github.com/resque/resque">Resque</a> and <a href="http://sidekiq.org/">Sidekiq</a>. We also implement some of the popular Resque plugins, including <a href="https://github.com/resque/resque-scheduler">resque-scheduler</a> and <a href="https://github.com/lantins/resque-retry">resque-retry</a></p>
+				<p><a href="https://npmjs.org/package/node-resque"><img src="https://nodei.co/npm/node-resque.png?downloads=true" alt="Nodei stats"></a></p>
+				<p><a href="https://circleci.com/gh/taskrabbit/node-resque"><img src="https://circleci.com/gh/taskrabbit/node-resque.svg?style=svg" alt="CircleCI"></a></p>
+				<a href="#api-docs" id="api-docs" style="color: inherit; text-decoration: none;">
+					<h2>API Docs</h2>
+				</a>
+				<p>You can read the API docs for Node Resque @ <a href="https://node-resque.actionherojs.com">node-resque.actionherojs.com</a>. These are generated automatically from the master branch via <a href="https://typedoc.org/">TypeDoc</a></p>
+				<a href="#version-notes" id="version-notes" style="color: inherit; text-decoration: none;">
+					<h2>Version Notes</h2>
+				</a>
+				<ul>
+					<li>‼️ Version 6+ of Node Resque uses Tyepscript. We will still include javascrtipt transpiled code in NPM releases, but they will be generated from the Typescript source. Functinality between node-resque v5 and v6 should be the same.</li>
+					<li>‼️ Version 5+ of Node Resque uses async/await. There is no upgrade path from previous versions. Node v8.0.0+ is required.</li>
+				</ul>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>I learn best by examples:</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { Worker, Scheduler, Queue } <span class="hljs-keyword">from</span> <span class="hljs-string">"node-resque"</span>;
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">boot</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ////////////////////////</span>
+  <span class="hljs-comment">// SET UP THE CONNECTION //</span>
+  <span class="hljs-comment">// ////////////////////////</span>
+
+  <span class="hljs-keyword">const</span> connectionDetails = {
+    <span class="hljs-attr">pkg</span>: <span class="hljs-string">"ioredis"</span>,
+    <span class="hljs-attr">host</span>: <span class="hljs-string">"127.0.0.1"</span>,
+    <span class="hljs-attr">password</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">port</span>: <span class="hljs-number">6379</span>,
+    <span class="hljs-attr">database</span>: <span class="hljs-number">0</span>
+    <span class="hljs-comment">// namespace: 'resque',</span>
+    <span class="hljs-comment">// looping: true,</span>
+    <span class="hljs-comment">// options: {password: 'abc'},</span>
+  };
+
+  <span class="hljs-comment">// ///////////////////////////</span>
+  <span class="hljs-comment">// DEFINE YOUR WORKER TASKS //</span>
+  <span class="hljs-comment">// ///////////////////////////</span>
+
+  <span class="hljs-keyword">let</span> jobsToComplete = <span class="hljs-number">0</span>;
+
+  <span class="hljs-keyword">const</span> jobs = {
+    <span class="hljs-attr">add</span>: {
+      <span class="hljs-attr">plugins</span>: [<span class="hljs-string">"JobLock"</span>],
+      <span class="hljs-attr">pluginOptions</span>: {
+        <span class="hljs-attr">JobLock</span>: {}
+      },
+      <span class="hljs-attr">perform</span>: <span class="hljs-keyword">async</span> (a, b) =&gt; {
+        <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {
+          setTimeout(resolve, <span class="hljs-number">1000</span>);
+        });
+        jobsToComplete--;
+        tryShutdown();
+
+        <span class="hljs-keyword">const</span> answer = a + b;
+        <span class="hljs-keyword">return</span> answer;
+      }
+    },
+    <span class="hljs-attr">subtract</span>: {
+      <span class="hljs-attr">perform</span>: <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
+        jobsToComplete--;
+        tryShutdown();
+
+        <span class="hljs-keyword">const</span> answer = a - b;
+        <span class="hljs-keyword">return</span> answer;
+      }
+    }
+  };
+
+  <span class="hljs-comment">// just a helper for this demo</span>
+  <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">tryShutdown</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (jobsToComplete === <span class="hljs-number">0</span>) {
+      <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {
+        setTimeout(resolve, <span class="hljs-number">500</span>);
+      });
+      <span class="hljs-keyword">await</span> scheduler.end();
+      <span class="hljs-keyword">await</span> worker.end();
+      process.exit();
+    }
+  }
+
+  <span class="hljs-comment">// /////////////////</span>
+  <span class="hljs-comment">// START A WORKER //</span>
+  <span class="hljs-comment">// /////////////////</span>
+
+  <span class="hljs-keyword">const</span> worker = <span class="hljs-keyword">new</span> Worker(
+    { <span class="hljs-attr">connection</span>: connectionDetails, <span class="hljs-attr">queues</span>: [<span class="hljs-string">"math"</span>, <span class="hljs-string">"otherQueue"</span>] },
+    jobs
+  );
+  <span class="hljs-keyword">await</span> worker.connect();
+  worker.start();
+
+  <span class="hljs-comment">// ////////////////////</span>
+  <span class="hljs-comment">// START A SCHEDULER //</span>
+  <span class="hljs-comment">// ////////////////////</span>
+
+  <span class="hljs-keyword">const</span> scheduler = <span class="hljs-keyword">new</span> Scheduler({ <span class="hljs-attr">connection</span>: connectionDetails });
+  <span class="hljs-keyword">await</span> scheduler.connect();
+  scheduler.start();
+
+  <span class="hljs-comment">// //////////////////////</span>
+  <span class="hljs-comment">// REGESTER FOR EVENTS //</span>
+  <span class="hljs-comment">// //////////////////////</span>
+
+  worker.on(<span class="hljs-string">"start"</span>, () =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker started"</span>);
+  });
+  worker.on(<span class="hljs-string">"end"</span>, () =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker ended"</span>);
+  });
+  worker.on(<span class="hljs-string">"cleaning_worker"</span>, (worker, pid) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`cleaning old worker <span class="hljs-subst">${worker}</span>`</span>);
+  });
+  worker.on(<span class="hljs-string">"poll"</span>, queue =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`worker polling <span class="hljs-subst">${queue}</span>`</span>);
+  });
+  worker.on(<span class="hljs-string">"ping"</span>, time =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`worker check in @ <span class="hljs-subst">${time}</span>`</span>);
+  });
+  worker.on(<span class="hljs-string">"job"</span>, (queue, job) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`working job <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span>`</span>);
+  });
+  worker.on(<span class="hljs-string">"reEnqueue"</span>, (queue, job, plugin) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`reEnqueue job (<span class="hljs-subst">${plugin}</span>) <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span>`</span>);
+  });
+  worker.on(<span class="hljs-string">"success"</span>, (queue, job, result) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`job success <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span> &gt;&gt; <span class="hljs-subst">${result}</span>`</span>);
+  });
+  worker.on(<span class="hljs-string">"failure"</span>, (queue, job, failure) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`job failure <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span> &gt;&gt; <span class="hljs-subst">${failure}</span>`</span>);
+  });
+  worker.on(<span class="hljs-string">"error"</span>, (error, queue, job) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`error <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span>  &gt;&gt; <span class="hljs-subst">${error}</span>`</span>);
+  });
+  worker.on(<span class="hljs-string">"pause"</span>, () =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker paused"</span>);
+  });
+
+  scheduler.on(<span class="hljs-string">"start"</span>, () =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"scheduler started"</span>);
+  });
+  scheduler.on(<span class="hljs-string">"end"</span>, () =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"scheduler ended"</span>);
+  });
+  scheduler.on(<span class="hljs-string">"poll"</span>, () =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"scheduler polling"</span>);
+  });
+  scheduler.on(<span class="hljs-string">"master"</span>, state =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"scheduler became master"</span>);
+  });
+  scheduler.on(<span class="hljs-string">"error"</span>, error =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`scheduler error &gt;&gt; <span class="hljs-subst">${error}</span>`</span>);
+  });
+  scheduler.on(<span class="hljs-string">"cleanStuckWorker"</span>, (workerName, errorPayload, delta) =&gt; {
+    <span class="hljs-built_in">console</span>.log(
+      <span class="hljs-string">`failing <span class="hljs-subst">${workerName}</span> (stuck for <span class="hljs-subst">${delta}</span>s) and failing job <span class="hljs-subst">${errorPayload}</span>`</span>
+    );
+  });
+  scheduler.on(<span class="hljs-string">"workingTimestamp"</span>, timestamp =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`scheduler working timestamp <span class="hljs-subst">${timestamp}</span>`</span>);
+  });
+  scheduler.on(<span class="hljs-string">"transferredJob"</span>, (timestamp, job) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`scheduler enquing job <span class="hljs-subst">${timestamp}</span> &gt;&gt; <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span>`</span>);
+  });
+
+  <span class="hljs-comment">// //////////////////////</span>
+  <span class="hljs-comment">// CONNECT TO A QUEUE //</span>
+  <span class="hljs-comment">// //////////////////////</span>
+
+  <span class="hljs-keyword">const</span> queue = <span class="hljs-keyword">new</span> Queue({ <span class="hljs-attr">connection</span>: connectionDetails }, jobs);
+  queue.on(<span class="hljs-string">"error"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(error);
+  });
+  <span class="hljs-keyword">await</span> queue.connect();
+  <span class="hljs-keyword">await</span> queue.enqueue(<span class="hljs-string">"math"</span>, <span class="hljs-string">"add"</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]);
+  <span class="hljs-keyword">await</span> queue.enqueue(<span class="hljs-string">"math"</span>, <span class="hljs-string">"add"</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]);
+  <span class="hljs-keyword">await</span> queue.enqueue(<span class="hljs-string">"math"</span>, <span class="hljs-string">"add"</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);
+  <span class="hljs-keyword">await</span> queue.enqueueIn(<span class="hljs-number">3000</span>, <span class="hljs-string">"math"</span>, <span class="hljs-string">"subtract"</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>]);
+  jobsToComplete = <span class="hljs-number">4</span>;
+}
+
+boot();
+
+<span class="hljs-comment">// and when you are done</span>
+<span class="hljs-comment">// await queue.end()</span>
+<span class="hljs-comment">// await scheduler.end()</span>
+<span class="hljs-comment">// await worker.end()</span></code></pre>
+				<a href="#configuration-options" id="configuration-options" style="color: inherit; text-decoration: none;">
+					<h2>Configuration Options:</h2>
+				</a>
+				<p><code>new queue</code> requires only the &quot;queue&quot; variable to be set. You can also pass the <code>jobs</code> hash to it.</p>
+				<p><code>new worker</code> has some additional options:</p>
+				<pre><code class="language-javascript">options = {
+  <span class="hljs-attr">looping</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">timeout</span>: <span class="hljs-number">5000</span>,
+  <span class="hljs-attr">queues</span>: <span class="hljs-string">"*"</span>,
+  <span class="hljs-attr">name</span>: os.hostname() + <span class="hljs-string">":"</span> + process.pid
+};</code></pre>
+				<p>The configuration hash passed to <code>new NodeResque.Worker</code>, <code>new NodeResque.Scheduler</code> or <code>new NodeResque.Queue</code> can also take a <code>connection</code> option.</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> connectionDetails = {
+  <span class="hljs-attr">pkg</span>: <span class="hljs-string">"ioredis"</span>,
+  <span class="hljs-attr">host</span>: <span class="hljs-string">"127.0.0.1"</span>,
+  <span class="hljs-attr">password</span>: <span class="hljs-string">""</span>,
+  <span class="hljs-attr">port</span>: <span class="hljs-number">6379</span>,
+  <span class="hljs-attr">database</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">namespace</span>: <span class="hljs-string">"resque"</span> <span class="hljs-comment">// Also allow array of strings</span>
+};
+
+<span class="hljs-keyword">var</span> worker = <span class="hljs-keyword">new</span> NodeResque.Worker(
+  { <span class="hljs-attr">connection</span>: connectionDetails, <span class="hljs-attr">queues</span>: <span class="hljs-string">"math"</span> },
+  jobs
+);
+
+worker.on(<span class="hljs-string">"error"</span>, error =&gt; {
+  <span class="hljs-comment">// handler errors</span>
+});
+
+<span class="hljs-keyword">await</span> worker.connect();
+worker.start();
+
+<span class="hljs-comment">// and when you are done</span>
+<span class="hljs-comment">// await worker.end()</span></code></pre>
+				<p>You can also pass redis client directly.</p>
+				<pre><code class="language-javascript"><span class="hljs-comment">// assume you already initialize redis client before</span>
+
+<span class="hljs-keyword">var</span> redisClient = <span class="hljs-keyword">new</span> Redis();
+<span class="hljs-keyword">var</span> connectionDetails = { <span class="hljs-attr">redis</span>: redisClient };
+
+<span class="hljs-keyword">var</span> worker = <span class="hljs-keyword">new</span> NodeResque.Worker(
+  { <span class="hljs-attr">connection</span>: connectionDetails, <span class="hljs-attr">queues</span>: <span class="hljs-string">"math"</span> },
+  jobs
+);
+
+worker.on(<span class="hljs-string">"error"</span>, error =&gt; {
+  <span class="hljs-comment">// handler errors</span>
+});
+
+<span class="hljs-keyword">await</span> worker.connect();
+worker.start();
+
+<span class="hljs-comment">// and when you are done</span>
+<span class="hljs-comment">// await worker.end()</span></code></pre>
+				<a href="#notes" id="notes" style="color: inherit; text-decoration: none;">
+					<h2>Notes</h2>
+				</a>
+				<ul>
+					<li>Be sure to call <code>await worker.end()</code>, <code>await queue.end()</code> and <code>await scheduler.end()</code> before shutting down your application if you want to properly clear your worker status from resque.</li>
+					<li>When ending your application, be sure to allow your workers time to finish what they are working on</li>
+					<li>This project implements the &quot;scheduler&quot; part of rescue-scheduler (the daemon which can promote enqueued delayed jobs into the work queues when it is time), but not the CRON scheduler proxy. To learn more about how to use a CRON-like scheduler, read the <a href="#job-schedules">Job Schedules</a> section of this document.</li>
+					<li>&quot;Namespace&quot; is a string which is appended to the front of your keys in redis. Normally, it is &quot;resque&quot;. This is helpful if you want to store multiple work queues in one redis database. Do not use <code>keyPrefix</code> if you are using the <code>ioredis</code> (default) redis driver in this project (see <a href="https://github.com/taskrabbit/node-resque/issues/245">https://github.com/taskrabbit/node-resque/issues/245</a> for more information.)</li>
+					<li>If you are using any plugins which effect <code>beforeEnqueue</code> or <code>afterEnqueue</code>, be sure to pass the <code>jobs</code> argument to the <code>new NodeResque.Queue()</code> constructor</li>
+					<li>If a job fails, it will be added to a special <code>failed</code> queue. You can then inspect these jobs, write a plugin to manage them, move them back to the normal queues, etc. Failure behavior by default is just to enter the <code>failed</code> queue, but there are many options. Check out these examples from the ruby ecosystem for inspiration:<ul>
+							<li><a href="https://github.com/lantins/resque-retry">https://github.com/lantins/resque-retry</a></li>
+							<li><a href="https://github.com/resque/resque/wiki/Failure-Backends">https://github.com/resque/resque/wiki/Failure-Backends</a></li>
+						</ul>
+					</li>
+					<li>If you plan to run more than one worker per nodejs process, be sure to name them something distinct. Names <strong>must</strong> follow the pattern <code>hostname:pid+unique_id</code>. For example:</li>
+					<li>For the Retry plugin, a success message will be emitted from the worker on each attempt (even if the job fails) except the final retry. The final retry will emit a failure message instead.</li>
+				</ul>
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> name = os.hostname() + <span class="hljs-string">":"</span> + process.pid + <span class="hljs-string">"+"</span> + counter;
+<span class="hljs-keyword">var</span> worker = <span class="hljs-keyword">new</span> NodeResque.Worker(
+  { <span class="hljs-attr">connection</span>: connectionDetails, <span class="hljs-attr">queues</span>: <span class="hljs-string">"math"</span>, <span class="hljs-attr">name</span>: name },
+  jobs
+);</code></pre>
+				<a href="#workerperforminline" id="workerperforminline" style="color: inherit; text-decoration: none;">
+					<h3>Worker#performInline</h3>
+				</a>
+				<p><strong>DO NOT USE THIS IN PRODUCTION</strong>. In tests or special cases, you may want to process/work a job in-line. To do so, you can use <code>worker.performInline(jobName, arguments, callback)</code>. If you are planning on running a job via #performInline, this worker should also not be started, nor should be using event emitters to monitor this worker. This method will also not write to redis at all, including logging errors, modify resque&#39;s stats, etc.</p>
+				<a href="#queue-management" id="queue-management" style="color: inherit; text-decoration: none;">
+					<h2>Queue Management</h2>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> queue = <span class="hljs-keyword">new</span> NodeResque.Queue({ <span class="hljs-attr">connection</span>: connectionDetails, jobs });
+<span class="hljs-keyword">await</span> queue.connect();</code></pre>
+				<p>API documentation for the main methods you will be using to enqueue jobs to be worked can be found @ <a href="https://node-resque.actionherojs.com">node-resque.actionherojs.com</a>.</p>
+				<a href="#failed-job-management" id="failed-job-management" style="color: inherit; text-decoration: none;">
+					<h2>Failed Job Management</h2>
+				</a>
+				<p>From time to time, your jobs/workers may fail. Resque workers will move failed jobs to a special <code>failed</code> queue which will store the original arguments of your job, the failing stack trace, and additional metadata.</p>
+				<p><img src="https://raw.githubusercontent.com/taskrabbit/node-resque/master/images/error_payload.png" alt="error example"></p>
+				<p>You can work with these failed jobs with the following methods:</p>
+				<p><strong><code>let failedCount = await queue.failedCount()</code></strong></p>
+				<ul>
+					<li><code>failedCount</code> is the number of jobs in the failed queue</li>
+				</ul>
+				<p><strong><code>let failedJobs = await queue.failed(start, stop)</code></strong></p>
+				<ul>
+					<li><code>failedJobs</code> is an array listing the data of the failed jobs. Each element looks like:
+					<code>{&quot;worker&quot;: &quot;host:pid&quot;, &quot;queue&quot;: &quot;test_queue&quot;, &quot;payload&quot;: {&quot;class&quot;:&quot;slowJob&quot;, &quot;queue&quot;:&quot;test_queue&quot;, &quot;args&quot;:[null]}, &quot;exception&quot;: &quot;TypeError&quot;, &quot;error&quot;: &quot;MyImport is not a function&quot;, &quot;backtrace&quot;: [&#39; at Worker.perform (/path/to/worker:111:24)&#39;, &#39; at &lt;anonymous&gt;&#39;], &quot;failed_at&quot;: &quot;Fri Dec 12 2014 14:01:16 GMT-0800 (PST)&quot;}</code></li>
+					<li>To retrieve all failed jobs, use arguments: <code>await queue.failed(0, -1)</code></li>
+				</ul>
+				<a href="#failing-a-job" id="failing-a-job" style="color: inherit; text-decoration: none;">
+					<h3>Failing a Job</h3>
+				</a>
+				<p>We use a try/catch pattern to catch errors in your jobs. If any job throws an uncaught exception, it will be caught, and the job&#39;s payload moved to the error queue for inspection. Do not use <code>domains</code>, <code>process.onExit</code>, or any other method of &quot;catching&quot; a process crash. The error paylaod looks like:</p>
+				<pre><code class="language-javascript">{ <span class="hljs-attr">worker</span>: <span class="hljs-string">'busted-worker-3'</span>,
+  <span class="hljs-attr">queue</span>: <span class="hljs-string">'busted-queue'</span>,
+  <span class="hljs-attr">payload</span>: { <span class="hljs-attr">class</span>: <span class="hljs-string">'busted_job'</span>, <span class="hljs-attr">queue</span>: <span class="hljs-string">'busted-queue'</span>, <span class="hljs-attr">args</span>: [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> ] },
+  <span class="hljs-attr">exception</span>: <span class="hljs-string">'ERROR_NAME'</span>,
+  <span class="hljs-attr">error</span>: <span class="hljs-string">'I broke'</span>,
+  <span class="hljs-attr">failed_at</span>: <span class="hljs-string">'Sun Apr 26 2015 14:00:44 GMT+0100 (BST)'</span> }</code></pre>
+				<p><strong><code>await queue.removeFailed(failedJob)</code></strong></p>
+				<ul>
+					<li>the input <code>failedJob</code> is an expanded node object representing the failed job, retrieved via <code>queue.failed</code></li>
+				</ul>
+				<p><strong><code>await queue.retryAndRemoveFailed(failedJob)</code></strong></p>
+				<ul>
+					<li>the input <code>failedJob</code> is an expanded node object representing the failed job, retrieved via <code>queue.failed</code></li>
+					<li>this method will instantly re-enqueue a failed job back to its original queue, and delete the failed entry for that job</li>
+				</ul>
+				<a href="#failed-worker-management" id="failed-worker-management" style="color: inherit; text-decoration: none;">
+					<h2>Failed Worker Management</h2>
+				</a>
+				<a href="#automatically" id="automatically" style="color: inherit; text-decoration: none;">
+					<h3>Automatically</h3>
+				</a>
+				<p>By default, the scheduler will check for workers which haven&#39;t pinged redis in 60 minutes. If this happens, we will assume the process crashed, and remove it from redis. If this worker was working on a job, we will place it in the failed queue for later inspection. Every worker has a timer running in which it then updates a key in redis every <code>timeout</code> (default: 5 seconds). If your job is slow, but async, there should be no problem. However, if your job consumes 100% of the CPU of the process, this timer might not fire.</p>
+				<p>To modify the 60 minute check, change <code>stuckWorkerTimeout</code> when configuring your scheudler, ie:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> scheduler = <span class="hljs-keyword">new</span> NodeResque.Scheduler({
+  <span class="hljs-attr">stuckWorkerTimeout</span>: (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>) <span class="hljs-comment">// 1 hour, in ms</span>
+  <span class="hljs-attr">connection</span>: connectionDetails
+})</code></pre>
+				<p>Set your scheduler&#39;s <code>stuckWorkerTimeout = false</code> to disable this behavior.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> scheduler = <span class="hljs-keyword">new</span> NodeResque.Scheduler({
+  <span class="hljs-attr">stuckWorkerTimeout</span>: <span class="hljs-literal">false</span> <span class="hljs-comment">// will not fail jobs which haven't pinged redis</span>
+  <span class="hljs-attr">connection</span>: connectionDetails
+})</code></pre>
+				<a href="#manually" id="manually" style="color: inherit; text-decoration: none;">
+					<h3>Manually</h3>
+				</a>
+				<p>Sometimes a worker crashes is a <em>severe</em> way, and it doesn&#39;t get the time/chance to notify redis that it is leaving the pool (this happens all the time on PAAS providers like Heroku). When this happens, you will not only need to extract the job from the now-zombie worker&#39;s &quot;working on&quot; status, but also remove the stuck worker. To aid you in these edge cases, <code>await queue.cleanOldWorkers(age)</code> is available.</p>
+				<p>Because there are no &#39;heartbeats&#39; in resque, it is imposable for the application to know if a worker has been working on a long job or it is dead. You are required to provide an &quot;age&quot; for how long a worker has been &quot;working&quot;, and all those older than that age will be removed, and the job they are working on moved to the error queue (where you can then use <code>queue.retryAndRemoveFailed</code>) to re-enqueue the job.</p>
+				<p>If you know the name of a worker that should be removed, you can also call <code>await queue.forceCleanWorker(workerName)</code> directly, and that will also remove the worker and move any job it was working on into the error queue. This method will still proceed for workers which are only partially in redis, indicting a previous connection failure. In this case, the job which the worker was working on is irrecoverably lost.</p>
+				<a href="#job-schedules" id="job-schedules" style="color: inherit; text-decoration: none;">
+					<h2>Job Schedules</h2>
+				</a>
+				<p>You may want to use node-resque to schedule jobs every minute/hour/day, like a distributed CRON system. There are a number of excellent node packages to help you with this, like <a href="https://github.com/tejasmanohar/node-schedule">node-schedule</a> and <a href="https://github.com/ncb000gt/node-cron">node-cron</a>. Node-resque makes it possible for you to use the package of your choice to schedule jobs with.</p>
+				<p>Assuming you are running node-resque across multiple machines, you will need to ensure that only one of your processes is actually scheduling the jobs. To help you with this, you can inspect which of the scheduler processes is currently acting as master, and flag only the master scheduler process to run the schedule. A full example can be found at <a href="https://github.com/taskrabbit/node-resque/blob/master/examples/scheduledJobs.js">/examples/scheduledJobs.js</a>, but the relevant section is:</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> NodeResque = <span class="hljs-built_in">require</span>(<span class="hljs-string">"node-resque"</span>);
+<span class="hljs-keyword">const</span> schedule = <span class="hljs-built_in">require</span>(<span class="hljs-string">"node-schedule"</span>);
+<span class="hljs-keyword">const</span> queue = <span class="hljs-keyword">new</span> NodeResque.Queue({ <span class="hljs-attr">connection</span>: connectionDetails }, jobs);
+<span class="hljs-keyword">const</span> scheduler = <span class="hljs-keyword">new</span> NodeResque.Scheduler({ <span class="hljs-attr">connection</span>: connectionDetails });
+<span class="hljs-keyword">await</span> scheduler.connect();
+scheduler.start();
+
+schedule.scheduleJob(<span class="hljs-string">"10,20,30,40,50 * * * * *"</span>, <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-comment">// do this job every 10 seconds, CRON style</span>
+  <span class="hljs-comment">// we want to ensure that only one instance of this job is scheduled in our environment at once,</span>
+  <span class="hljs-comment">// no matter how many schedulers we have running</span>
+  <span class="hljs-keyword">if</span> (scheduler.master) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"&gt;&gt;&gt; enquing a job"</span>);
+    <span class="hljs-keyword">await</span> queue.enqueue(<span class="hljs-string">"time"</span>, <span class="hljs-string">"ticktock"</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toString());
+  }
+});</code></pre>
+				<a href="#plugins" id="plugins" style="color: inherit; text-decoration: none;">
+					<h2>Plugins</h2>
+				</a>
+				<p>Just like ruby&#39;s resque, you can write worker plugins. They look like this. The 4 hooks you have are <code>beforeEnqueue</code>, <code>afterEnqueue</code>, <code>beforePerform</code>, and <code>afterPerform</code>. Plugins are <code>classes</code> which extend <code>NodeResque.Plugin</code></p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { Plugin } = <span class="hljs-built_in">require</span>(<span class="hljs-string">"node-resque"</span>);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPlugin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Plugin</span> </span>{
+  <span class="hljs-keyword">constructor</span>(...args) {
+    <span class="hljs-comment">// @ts-ignore</span>
+    <span class="hljs-keyword">super</span>(...args);
+    <span class="hljs-keyword">this</span>.name = <span class="hljs-string">"MyPlugin"</span>;
+  }
+
+  beforeEnqueue() {
+    <span class="hljs-comment">// console.log("** beforeEnqueue")</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <span class="hljs-comment">// should the job be enqueued?</span>
+  }
+
+  afterEnqueue() {
+    <span class="hljs-comment">// console.log("** afterEnqueue")</span>
+  }
+
+  beforePerform() {
+    <span class="hljs-comment">// console.log("** beforePerform")</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <span class="hljs-comment">// should the job be run?</span>
+  }
+
+  afterPerform() {
+    <span class="hljs-comment">// console.log("** afterPerform")</span>
+  }
+}</code></pre>
+				<p>And then your plugin can be invoked within a job like this:</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> jobs = {
+  <span class="hljs-attr">add</span>: {
+    <span class="hljs-attr">plugins</span>: [<span class="hljs-string">"MyPlugin"</span>],
+    <span class="hljs-attr">pluginOptions</span>: {
+      <span class="hljs-attr">MyPlugin</span>: { <span class="hljs-attr">thing</span>: <span class="hljs-string">"stuff"</span> }
+    },
+    <span class="hljs-attr">perform</span>: <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
+      <span class="hljs-keyword">let</span> answer = a + b;
+      <span class="hljs-keyword">return</span> answer;
+    }
+  }
+};</code></pre>
+				<p><strong>notes</strong></p>
+				<ul>
+					<li>You need to return <code>true</code> or <code>false</code> on the before hooks. <code>true</code> indicates that the action should continue, and <code>false</code> prevents it. This is called <code>toRun</code>.</li>
+					<li>If you are writing a plugin to deal with errors which may occur during your resque job, you can inspect and modify <code>this.worker.error</code> in your plugin. If <code>this.worker.error</code> is null, no error will be logged in the resque error queue.</li>
+					<li>There are a few included plugins, all in the lib/plugins/* directory. You can rewrite you own and include it like this:</li>
+				</ul>
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> jobs = {
+  <span class="hljs-attr">add</span>: {
+    <span class="hljs-attr">plugins</span>: [<span class="hljs-built_in">require</span>(<span class="hljs-string">"Myplugin"</span>).Myplugin],
+    <span class="hljs-attr">pluginOptions</span>: {
+      <span class="hljs-attr">MyPlugin</span>: { <span class="hljs-attr">thing</span>: <span class="hljs-string">"stuff"</span> }
+    },
+    <span class="hljs-attr">perform</span>: <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
+      <span class="hljs-keyword">let</span> answer = a + b;
+      <span class="hljs-keyword">return</span> answer;
+    }
+  }
+};</code></pre>
+				<p>The plugins which are included with this package are:</p>
+				<ul>
+					<li><code>DelayQueueLock</code><ul>
+							<li>If a job with the same name, queue, and args is already in the delayed queue(s), do not enqueue it again</li>
+						</ul>
+					</li>
+					<li><code>JobLock</code><ul>
+							<li>If a job with the same name, queue, and args is already running, put this job back in the queue and try later</li>
+						</ul>
+					</li>
+					<li><code>QueueLock</code><ul>
+							<li>If a job with the same name, queue, and args is already in the queue, do not enqueue it again</li>
+						</ul>
+					</li>
+					<li><code>Retry</code><ul>
+							<li>If a job fails, retry it N times before finally placing it into the failed queue</li>
+						</ul>
+					</li>
+				</ul>
+				<a href="#multi-worker" id="multi-worker" style="color: inherit; text-decoration: none;">
+					<h2>Multi Worker</h2>
+				</a>
+				<p><code>node-resque</code> provides a wrapper around the <code>Worker</code> class which will auto-scale the number of resque workers. This will process more than one job at a time as long as there is idle CPU within the event loop. For example, if you have a slow job that sends email via SMTP (with low overhead), we can process many jobs at a time, but if you have a math-heavy operation, we&#39;ll stick to 1. The <code>MultiWorker</code> handles this by spawning more and more node-resque workers and managing the pool.</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> NodeResque = <span class="hljs-built_in">require</span>(__dirname + <span class="hljs-string">"/../index.js"</span>);
+
+<span class="hljs-keyword">var</span> connectionDetails = {
+  <span class="hljs-attr">pkg</span>: <span class="hljs-string">"ioredis"</span>,
+  <span class="hljs-attr">host</span>: <span class="hljs-string">"127.0.0.1"</span>,
+  <span class="hljs-attr">password</span>: <span class="hljs-string">""</span>
+};
+
+<span class="hljs-keyword">var</span> multiWorker = <span class="hljs-keyword">new</span> NodeResque.MultiWorker(
+  {
+    <span class="hljs-attr">connection</span>: connectionDetails,
+    <span class="hljs-attr">queues</span>: [<span class="hljs-string">"slowQueue"</span>],
+    <span class="hljs-attr">minTaskProcessors</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">maxTaskProcessors</span>: <span class="hljs-number">100</span>,
+    <span class="hljs-attr">checkTimeout</span>: <span class="hljs-number">1000</span>,
+    <span class="hljs-attr">maxEventLoopDelay</span>: <span class="hljs-number">10</span>
+  },
+  jobs
+);
+
+<span class="hljs-comment">// normal worker emitters</span>
+multiWorker.on(<span class="hljs-string">"start"</span>, workerId =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] started"</span>);
+});
+multiWorker.on(<span class="hljs-string">"end"</span>, workerId =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] ended"</span>);
+});
+multiWorker.on(<span class="hljs-string">"cleaning_worker"</span>, (workerId, worker, pid) =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"cleaning old worker "</span> + worker);
+});
+multiWorker.on(<span class="hljs-string">"poll"</span>, (workerId, queue) =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] polling "</span> + queue);
+});
+multiWorker.on(<span class="hljs-string">"ping"</span>, (workerId, time) =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] check in @ "</span> + time);
+});
+multiWorker.on(<span class="hljs-string">"job"</span>, (workerId, queue, job) =&gt; {
+  <span class="hljs-built_in">console</span>.log(
+    <span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] working job "</span> + queue + <span class="hljs-string">" "</span> + <span class="hljs-built_in">JSON</span>.stringify(job)
+  );
+});
+multiWorker.on(<span class="hljs-string">"reEnqueue"</span>, (workerId, queue, job, plugin) =&gt; {
+  <span class="hljs-built_in">console</span>.log(
+    <span class="hljs-string">"worker["</span> +
+      workerId +
+      <span class="hljs-string">"] reEnqueue job ("</span> +
+      plugin +
+      <span class="hljs-string">") "</span> +
+      queue +
+      <span class="hljs-string">" "</span> +
+      <span class="hljs-built_in">JSON</span>.stringify(job)
+  );
+});
+multiWorker.on(<span class="hljs-string">"success"</span>, (workerId, queue, job, result) =&gt; {
+  <span class="hljs-built_in">console</span>.log(
+    <span class="hljs-string">"worker["</span> +
+      workerId +
+      <span class="hljs-string">"] job success "</span> +
+      queue +
+      <span class="hljs-string">" "</span> +
+      <span class="hljs-built_in">JSON</span>.stringify(job) +
+      <span class="hljs-string">" &gt;&gt; "</span> +
+      result
+  );
+});
+multiWorker.on(<span class="hljs-string">"failure"</span>, (workerId, queue, job, failure) =&gt; {
+  <span class="hljs-built_in">console</span>.log(
+    <span class="hljs-string">"worker["</span> +
+      workerId +
+      <span class="hljs-string">"] job failure "</span> +
+      queue +
+      <span class="hljs-string">" "</span> +
+      <span class="hljs-built_in">JSON</span>.stringify(job) +
+      <span class="hljs-string">" &gt;&gt; "</span> +
+      failure
+  );
+});
+multiWorker.on(<span class="hljs-string">"error"</span>, (workerId, queue, job, error) =&gt; {
+  <span class="hljs-built_in">console</span>.log(
+    <span class="hljs-string">"worker["</span> +
+      workerId +
+      <span class="hljs-string">"] error "</span> +
+      queue +
+      <span class="hljs-string">" "</span> +
+      <span class="hljs-built_in">JSON</span>.stringify(job) +
+      <span class="hljs-string">" &gt;&gt; "</span> +
+      error
+  );
+});
+multiWorker.on(<span class="hljs-string">"pause"</span>, workerId =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] paused"</span>);
+});
+
+<span class="hljs-comment">// multiWorker emitters</span>
+multiWorker.on(<span class="hljs-string">"internalError"</span>, error =&gt; {
+  <span class="hljs-built_in">console</span>.log(error);
+});
+multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, delay) =&gt; {
+  <span class="hljs-built_in">console</span>.log(
+    <span class="hljs-string">"*** checked for worker status: "</span> +
+      verb +
+      <span class="hljs-string">" (event loop delay: "</span> +
+      delay +
+      <span class="hljs-string">"ms)"</span>
+  );
+});
+
+multiWorker.start();</code></pre>
+				<a href="#multiworker-options" id="multiworker-options" style="color: inherit; text-decoration: none;">
+					<h3>MultiWorker Options</h3>
+				</a>
+				<p>The Options available for the multiWorker are:</p>
+				<ul>
+					<li><code>connection</code>: The redis configuration options (same as worker)</li>
+					<li><code>queues</code>: Array of ordered queue names (or <code>*</code>) (same as worker)</li>
+					<li><code>minTaskProcessors</code>: The minimum number of workers to spawn under this multiWorker, even if there is no work to do. You need at least one, or no work will ever be processed or checked</li>
+					<li><code>maxTaskProcessors</code>: The maximum number of workers to spawn under this multiWorker, even if the queues are long and there is available CPU (the event loop isn&#39;t entirely blocked) to this node process.</li>
+					<li><code>checkTimeout</code>: How often to check if the event loop is blocked (in ms) (for adding or removing multiWorker children),</li>
+					<li><code>maxEventLoopDelay</code>: How long the event loop has to be delayed before considering it blocked (in ms),</li>
+				</ul>
+				<a href="#presentation" id="presentation" style="color: inherit; text-decoration: none;">
+					<h2>Presentation</h2>
+				</a>
+				<p>This package was featured heavily in <a href="https://blog.evantahler.com/background-tasks-in-node-js-a-survey-with-redis-971d3575d9d2#.rzph5ofgy">this presentation I gave</a> about background jobs + node.js. It contains more examples!</p>
+				<a href="#acknowledgments" id="acknowledgments" style="color: inherit; text-decoration: none;">
+					<h2>Acknowledgments</h2>
+				</a>
+				<ul>
+					<li>Most of this code was inspired by / stolen from <a href="https://npmjs.org/package/coffee-resque">coffee-resque</a> and <a href="https://github.com/leeadkins/coffee-resque-scheduler">coffee-resque-scheduler</a>. Thanks!</li>
+					<li>This Resque package aims to be fully compatible with <a href="https://github.com/resque/resque">Ruby&#39;s Resque</a> and implementations of <a href="https://github.com/resque/resque-scheduler">Resque Scheduler</a>. Other packages from other langauges may conflict.</li>
+					<li>If you are looking for a UI to manage your Resque instances in nodejs, check out <a href="https://github.com/evantahler/ah-resque-ui">ActionHero&#39;s Resque UI</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_core_connection_.html">"core/connection"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_core_multiworker_.html">"core/multi<wbr>Worker"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_core_plugin_.html">"core/plugin"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_core_pluginrunner_.html">"core/plugin<wbr>Runner"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_core_queue_.html">"core/queue"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_core_scheduler_.html">"core/scheduler"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_core_worker_.html">"core/worker"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_index_.html">"index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_plugins_delayqueuelock_.html">"plugins/<wbr>Delay<wbr>Queue<wbr>Lock"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_plugins_joblock_.html">"plugins/<wbr>Job<wbr>Lock"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_plugins_noop_.html">"plugins/<wbr>Noop"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_plugins_queuelock_.html">"plugins/<wbr>Queue<wbr>Lock"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_plugins_retry_.html">"plugins/<wbr>Retry"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_utils_eventloopdelay_.html">"utils/event<wbr>Loop<wbr>Delay"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
