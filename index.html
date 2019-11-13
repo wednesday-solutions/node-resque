@@ -69,7 +69,7 @@
 				</a>
 				<p><strong>Distributed delayed jobs in nodejs</strong>. Resque is a background job system backed by <a href="http://redis.io">Redis</a> (version 2.0.0 and up required). It includes priority queues, plugins, locking, delayed jobs, and more! This project is a very opinionated but API-compatible with <a href="https://github.com/resque/resque">Resque</a> and <a href="http://sidekiq.org/">Sidekiq</a>. We also implement some of the popular Resque plugins, including <a href="https://github.com/resque/resque-scheduler">resque-scheduler</a> and <a href="https://github.com/lantins/resque-retry">resque-retry</a></p>
 				<p><a href="https://npmjs.org/package/node-resque"><img src="https://nodei.co/npm/node-resque.png?downloads=true" alt="Nodei stats"></a></p>
-				<p><a href="https://circleci.com/gh/taskrabbit/node-resque"><img src="https://circleci.com/gh/taskrabbit/node-resque.svg?style=svg" alt="CircleCI"></a></p>
+				<p><a href="https://circleci.com/gh/actionhero/node-resque"><img src="https://circleci.com/gh/actionhero/node-resque.svg?style=svg" alt="CircleCI"></a></p>
 				<a href="#api-docs" id="api-docs" style="color: inherit; text-decoration: none;">
 					<h2>API Docs</h2>
 				</a>
@@ -317,7 +317,7 @@ worker.start();
 					<li>Be sure to call <code>await worker.end()</code>, <code>await queue.end()</code> and <code>await scheduler.end()</code> before shutting down your application if you want to properly clear your worker status from resque.</li>
 					<li>When ending your application, be sure to allow your workers time to finish what they are working on</li>
 					<li>This project implements the &quot;scheduler&quot; part of rescue-scheduler (the daemon which can promote enqueued delayed jobs into the work queues when it is time), but not the CRON scheduler proxy. To learn more about how to use a CRON-like scheduler, read the <a href="#job-schedules">Job Schedules</a> section of this document.</li>
-					<li>&quot;Namespace&quot; is a string which is appended to the front of your keys in redis. Normally, it is &quot;resque&quot;. This is helpful if you want to store multiple work queues in one redis database. Do not use <code>keyPrefix</code> if you are using the <code>ioredis</code> (default) redis driver in this project (see <a href="https://github.com/taskrabbit/node-resque/issues/245">https://github.com/taskrabbit/node-resque/issues/245</a> for more information.)</li>
+					<li>&quot;Namespace&quot; is a string which is appended to the front of your keys in redis. Normally, it is &quot;resque&quot;. This is helpful if you want to store multiple work queues in one redis database. Do not use <code>keyPrefix</code> if you are using the <code>ioredis</code> (default) redis driver in this project (see <a href="https://github.com/actionhero/node-resque/issues/245">https://github.com/actionhero/node-resque/issues/245</a> for more information.)</li>
 					<li>If you are using any plugins which effect <code>beforeEnqueue</code> or <code>afterEnqueue</code>, be sure to pass the <code>jobs</code> argument to the <code>new NodeResque.Queue()</code> constructor</li>
 					<li>If a job fails, it will be added to a special <code>failed</code> queue. You can then inspect these jobs, write a plugin to manage them, move them back to the normal queues, etc. Failure behavior by default is just to enter the <code>failed</code> queue, but there are many options. Check out these examples from the ruby ecosystem for inspiration:<ul>
 							<li><a href="https://github.com/lantins/resque-retry">https://github.com/lantins/resque-retry</a></li>
@@ -346,7 +346,7 @@ worker.start();
 					<h2>Failed Job Management</h2>
 				</a>
 				<p>From time to time, your jobs/workers may fail. Resque workers will move failed jobs to a special <code>failed</code> queue which will store the original arguments of your job, the failing stack trace, and additional metadata.</p>
-				<p><img src="https://raw.githubusercontent.com/taskrabbit/node-resque/master/images/error_payload.png" alt="error example"></p>
+				<p><img src="https://raw.githubusercontent.com/actionhero/node-resque/master/images/error_payload.png" alt="error example"></p>
 				<p>You can work with these failed jobs with the following methods:</p>
 				<p><strong><code>let failedCount = await queue.failedCount()</code></strong></p>
 				<ul>
@@ -361,7 +361,7 @@ worker.start();
 				<a href="#failing-a-job" id="failing-a-job" style="color: inherit; text-decoration: none;">
 					<h3>Failing a Job</h3>
 				</a>
-				<p>We use a try/catch pattern to catch errors in your jobs. If any job throws an uncaught exception, it will be caught, and the job&#39;s payload moved to the error queue for inspection. Do not use <code>domains</code>, <code>process.onExit</code>, or any other method of &quot;catching&quot; a process crash. The error paylaod looks like:</p>
+				<p>We use a try/catch pattern to catch errors in your jobs. If any job throws an uncaught exception, it will be caught, and the job&#39;s payload moved to the error queue for inspection. Do not use <code>domains</code>, <code>process.onExit</code>, or any other method of &quot;catching&quot; a process crash. The error payload looks like:</p>
 				<pre><code class="language-javascript">{ <span class="hljs-attr">worker</span>: <span class="hljs-string">'busted-worker-3'</span>,
   <span class="hljs-attr">queue</span>: <span class="hljs-string">'busted-queue'</span>,
   <span class="hljs-attr">payload</span>: { <span class="hljs-attr">class</span>: <span class="hljs-string">'busted_job'</span>, <span class="hljs-attr">queue</span>: <span class="hljs-string">'busted-queue'</span>, <span class="hljs-attr">args</span>: [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> ] },
@@ -384,7 +384,7 @@ worker.start();
 					<h3>Automatically</h3>
 				</a>
 				<p>By default, the scheduler will check for workers which haven&#39;t pinged redis in 60 minutes. If this happens, we will assume the process crashed, and remove it from redis. If this worker was working on a job, we will place it in the failed queue for later inspection. Every worker has a timer running in which it then updates a key in redis every <code>timeout</code> (default: 5 seconds). If your job is slow, but async, there should be no problem. However, if your job consumes 100% of the CPU of the process, this timer might not fire.</p>
-				<p>To modify the 60 minute check, change <code>stuckWorkerTimeout</code> when configuring your scheudler, ie:</p>
+				<p>To modify the 60 minute check, change <code>stuckWorkerTimeout</code> when configuring your scheduler, ie:</p>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> scheduler = <span class="hljs-keyword">new</span> NodeResque.Scheduler({
   <span class="hljs-attr">stuckWorkerTimeout</span>: (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>) <span class="hljs-comment">// 1 hour, in ms</span>
   <span class="hljs-attr">connection</span>: connectionDetails
@@ -404,7 +404,7 @@ worker.start();
 					<h2>Job Schedules</h2>
 				</a>
 				<p>You may want to use node-resque to schedule jobs every minute/hour/day, like a distributed CRON system. There are a number of excellent node packages to help you with this, like <a href="https://github.com/tejasmanohar/node-schedule">node-schedule</a> and <a href="https://github.com/ncb000gt/node-cron">node-cron</a>. Node-resque makes it possible for you to use the package of your choice to schedule jobs with.</p>
-				<p>Assuming you are running node-resque across multiple machines, you will need to ensure that only one of your processes is actually scheduling the jobs. To help you with this, you can inspect which of the scheduler processes is currently acting as master, and flag only the master scheduler process to run the schedule. A full example can be found at <a href="https://github.com/taskrabbit/node-resque/blob/master/examples/scheduledJobs.js">/examples/scheduledJobs.js</a>, but the relevant section is:</p>
+				<p>Assuming you are running node-resque across multiple machines, you will need to ensure that only one of your processes is actually scheduling the jobs. To help you with this, you can inspect which of the scheduler processes is currently acting as master, and flag only the master scheduler process to run the schedule. A full example can be found at <a href="https://github.com/actionhero/node-resque/blob/master/examples/scheduledJobs.js">/examples/scheduledJobs.js</a>, but the relevant section is:</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> NodeResque = <span class="hljs-built_in">require</span>(<span class="hljs-string">"node-resque"</span>);
 <span class="hljs-keyword">const</span> schedule = <span class="hljs-built_in">require</span>(<span class="hljs-string">"node-schedule"</span>);
 <span class="hljs-keyword">const</span> queue = <span class="hljs-keyword">new</span> NodeResque.Queue({ <span class="hljs-attr">connection</span>: connectionDetails }, jobs);
@@ -417,7 +417,7 @@ schedule.scheduleJob(<span class="hljs-string">"10,20,30,40,50 * * * * *"</span>
   <span class="hljs-comment">// we want to ensure that only one instance of this job is scheduled in our environment at once,</span>
   <span class="hljs-comment">// no matter how many schedulers we have running</span>
   <span class="hljs-keyword">if</span> (scheduler.master) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"&gt;&gt;&gt; enquing a job"</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"&gt;&gt;&gt; enqueuing a job"</span>);
     <span class="hljs-keyword">await</span> queue.enqueue(<span class="hljs-string">"time"</span>, <span class="hljs-string">"ticktock"</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toString());
   }
 });</code></pre>
@@ -635,7 +635,7 @@ multiWorker.start();</code></pre>
 				</a>
 				<ul>
 					<li>Most of this code was inspired by / stolen from <a href="https://npmjs.org/package/coffee-resque">coffee-resque</a> and <a href="https://github.com/leeadkins/coffee-resque-scheduler">coffee-resque-scheduler</a>. Thanks!</li>
-					<li>This Resque package aims to be fully compatible with <a href="https://github.com/resque/resque">Ruby&#39;s Resque</a> and implementations of <a href="https://github.com/resque/resque-scheduler">Resque Scheduler</a>. Other packages from other langauges may conflict.</li>
+					<li>This Resque package aims to be fully compatible with <a href="https://github.com/resque/resque">Ruby&#39;s Resque</a> and implementations of <a href="https://github.com/resque/resque-scheduler">Resque Scheduler</a>. Other packages from other languages may conflict.</li>
 					<li>If you are looking for a UI to manage your Resque instances in nodejs, check out <a href="https://github.com/evantahler/ah-resque-ui">ActionHero&#39;s Resque UI</a></li>
 				</ul>
 			</div>
