@@ -69,41 +69,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<a href="#events" id="events" style="color: inherit; text-decoration: none;">
-							<h2>Events</h2>
-						</a>
-						<pre><code>scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span class="hljs-string">"start"</span>, <span class="hljs-params">()</span> =&gt; {
-  console.log<span class="hljs-params">(<span class="hljs-string">"scheduler started"</span>)</span>;
-})</span>;
-scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span class="hljs-string">"end"</span>, <span class="hljs-params">()</span> =&gt; {
-  console.log<span class="hljs-params">(<span class="hljs-string">"scheduler ended"</span>)</span>;
-})</span>;
- scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span class="hljs-string">"poll"</span>, <span class="hljs-params">()</span> =&gt; {
-   console.log<span class="hljs-params">(<span class="hljs-string">"scheduler polling"</span>)</span>;
- })</span>;
- scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span class="hljs-string">"master"</span>, state =&gt; {
-   console.log<span class="hljs-params">(<span class="hljs-string">"scheduler became master"</span>)</span>;
- })</span>;
- scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span class="hljs-string">"error"</span>, error =&gt; {
-   console.log<span class="hljs-params">(`scheduler error &gt;&gt; ${error}`)</span>;
- })</span>;
- scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span class="hljs-string">"cleanStuckWorker"</span>, <span class="hljs-params">(workerName, errorPayload, delta)</span> =&gt; {
-   console.log<span class="hljs-params">(
-     `failing ${workerName} <span class="hljs-params">(stuck for ${delta}s)</span> and failing job ${errorPayload}`
-   )</span>;
- })</span>;
- scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span class="hljs-string">"workingTimestamp"</span>, timestamp =&gt; {
-   console.log<span class="hljs-params">(`scheduler working timestamp ${timestamp}`)</span>;
- })</span>;
- scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span class="hljs-string">"transferredJob"</span>, <span class="hljs-params">(timestamp, job)</span> =&gt; {
-   console.log<span class="hljs-params">(`scheduler enquing job ${timestamp} &gt;&gt; ${JSON.stringify<span class="hljs-params">(job)</span>}`)</span>;
- })</span>;</code></pre>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -135,10 +100,10 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#master" class="tsd-kind-icon">master</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#name" class="tsd-kind-icon">name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#options" class="tsd-kind-icon">options</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#processing" class="tsd-kind-icon">processing</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#processing" class="tsd-kind-icon">processing</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#queue" class="tsd-kind-icon">queue</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#running" class="tsd-kind-icon">running</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#timer" class="tsd-kind-icon">timer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#timer" class="tsd-kind-icon">timer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_core_scheduler_.scheduler.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a></li>
 							</ul>
 						</section>
@@ -161,15 +126,15 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#nextdelayedtimestamp" class="tsd-kind-icon">next<wbr>Delayed<wbr>Timestamp</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#nextitemfortimestamp" class="tsd-kind-icon">next<wbr>Item<wbr>For<wbr>Timestamp</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#off" class="tsd-kind-icon">off</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#on" class="tsd-kind-icon">on</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#once" class="tsd-kind-icon">once</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_core_scheduler_.scheduler.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_core_scheduler_.scheduler.html#once" class="tsd-kind-icon">once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#poll" class="tsd-kind-icon">poll</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#pollagainlater" class="tsd-kind-icon">poll<wbr>Again<wbr>Later</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#prependlistener" class="tsd-kind-icon">prepend<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#prependoncelistener" class="tsd-kind-icon">prepend<wbr>Once<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#rawlisteners" class="tsd-kind-icon">raw<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#releasemasterlock" class="tsd-kind-icon">release<wbr>Master<wbr>Lock</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_core_scheduler_.scheduler.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#start" class="tsd-kind-icon">start</a></li>
@@ -193,7 +158,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L51">core/scheduler.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L61">core/scheduler.ts:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -220,7 +185,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 					<div class="tsd-signature tsd-kind-icon">connection<span class="tsd-signature-symbol">:</span> <a href="_core_connection_.connection.html" class="tsd-signature-type">Connection</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L50">core/scheduler.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L21">core/scheduler.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +195,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 					<div class="tsd-signature tsd-kind-icon">jobs<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_jobs_.jobs.html" class="tsd-signature-type">Jobs</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L44">core/scheduler.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L15">core/scheduler.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -240,7 +205,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 					<div class="tsd-signature tsd-kind-icon">master<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L46">core/scheduler.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L17">core/scheduler.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -250,7 +215,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L45">core/scheduler.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L16">core/scheduler.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -260,17 +225,17 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_options_.scheduleroptions.html" class="tsd-signature-type">SchedulerOptions</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L43">core/scheduler.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L14">core/scheduler.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="processing" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> processing</h3>
+					<h3>processing</h3>
 					<div class="tsd-signature tsd-kind-icon">processing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L48">core/scheduler.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L19">core/scheduler.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -280,7 +245,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 					<div class="tsd-signature tsd-kind-icon">queue<span class="tsd-signature-symbol">:</span> <a href="_core_queue_.queue.html" class="tsd-signature-type">Queue</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L49">core/scheduler.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L20">core/scheduler.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -290,17 +255,17 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 					<div class="tsd-signature tsd-kind-icon">running<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L47">core/scheduler.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L18">core/scheduler.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="timer" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> timer</h3>
+					<h3>timer</h3>
 					<div class="tsd-signature tsd-kind-icon">timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Timeout</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L51">core/scheduler.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L22">core/scheduler.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -374,7 +339,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L269">core/scheduler.ts:269</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L278">core/scheduler.ts:278</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -391,7 +356,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L257">core/scheduler.ts:257</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L266">core/scheduler.ts:266</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -414,7 +379,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L81">core/scheduler.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L90">core/scheduler.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -459,7 +424,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L96">core/scheduler.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L105">core/scheduler.ts:105</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -476,7 +441,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L232">core/scheduler.ts:232</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L241">core/scheduler.ts:241</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -518,7 +483,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L303">core/scheduler.ts:303</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L312">core/scheduler.ts:312</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -613,7 +578,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L167">core/scheduler.ts:167</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L176">core/scheduler.ts:176</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -630,7 +595,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L216">core/scheduler.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L225">core/scheduler.ts:225</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -647,7 +612,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L242">core/scheduler.ts:242</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L251">core/scheduler.ts:251</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -706,39 +671,192 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"poll"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"master"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"cleanStuckWorker"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"error"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"workingTimestamp"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"transferredJob"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from EventEmitter.on</p>
 								<p>Overrides EventEmitter.on</p>
 								<ul>
-									<li>Defined in /home/circleci/project/node_modules/@types/node/events.d.ts:21</li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L24">core/scheduler.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+									<h5>event: <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"poll"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"master"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L25">core/scheduler.ts:25</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"cleanStuckWorker"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>workerName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, errorPayload<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_errorpayload_.errorpayload.html" class="tsd-signature-type">ErrorPayload</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+															<h5>workerName: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>errorPayload: <a href="../interfaces/_types_errorpayload_.errorpayload.html" class="tsd-signature-type">ErrorPayload</a></h5>
+														</li>
+														<li>
+															<h5>delta: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L29">core/scheduler.ts:29</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"error"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span>, queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>error: <span class="tsd-signature-type">Error</span></h5>
+														</li>
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L30">core/scheduler.ts:30</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"workingTimestamp"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>timestamp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>timestamp: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L31">core/scheduler.ts:31</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"transferredJob"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>timestamp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>timestamp: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -752,39 +870,192 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="once" class="tsd-anchor"></a>
 					<h3>once</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"poll"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"master"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"cleanStuckWorker"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"error"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"workingTimestamp"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"transferredJob"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from EventEmitter.once</p>
 								<p>Overrides EventEmitter.once</p>
 								<ul>
-									<li>Defined in /home/circleci/project/node_modules/@types/node/events.d.ts:22</li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L36">core/scheduler.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+									<h5>event: <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"poll"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"master"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.once</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L37">core/scheduler.ts:37</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"cleanStuckWorker"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>workerName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, errorPayload<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_errorpayload_.errorpayload.html" class="tsd-signature-type">ErrorPayload</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+															<h5>workerName: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>errorPayload: <a href="../interfaces/_types_errorpayload_.errorpayload.html" class="tsd-signature-type">ErrorPayload</a></h5>
+														</li>
+														<li>
+															<h5>delta: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.once</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L41">core/scheduler.ts:41</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"error"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span>, queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>error: <span class="tsd-signature-type">Error</span></h5>
+														</li>
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.once</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L42">core/scheduler.ts:42</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"workingTimestamp"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>timestamp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>timestamp: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.once</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L43">core/scheduler.ts:43</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"transferredJob"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>timestamp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>timestamp: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -808,7 +1079,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L130">core/scheduler.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L139">core/scheduler.ts:139</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -825,7 +1096,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L159">core/scheduler.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L168">core/scheduler.ts:168</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -959,32 +1230,31 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L201">core/scheduler.ts:201</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L210">core/scheduler.ts:210</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="removealllisteners" class="tsd-anchor"></a>
 					<h3>remove<wbr>All<wbr>Listeners</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">remove<wbr>All<wbr>Listeners<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>All<wbr>Listeners<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../modules/_core_scheduler_.html#schedulerevent" class="tsd-signature-type">SchedulerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from EventEmitter.removeAllListeners</p>
 								<p>Overrides EventEmitter.removeAllListeners</p>
 								<ul>
-									<li>Defined in /home/circleci/project/node_modules/@types/node/events.d.ts:27</li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L48">core/scheduler.ts:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+									<h5>event: <a href="../modules/_core_scheduler_.html#schedulerevent" class="tsd-signature-type">SchedulerEvent</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -1072,7 +1342,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L86">core/scheduler.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L95">core/scheduler.ts:95</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1089,7 +1359,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L252">core/scheduler.ts:252</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L261">core/scheduler.ts:261</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1115,7 +1385,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/scheduler.ts#L171">core/scheduler.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/scheduler.ts#L180">core/scheduler.ts:180</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1245,7 +1515,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_scheduler_.scheduler.html#options" class="tsd-kind-icon">options</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_scheduler_.scheduler.html#processing" class="tsd-kind-icon">processing</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -1254,7 +1524,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_scheduler_.scheduler.html#running" class="tsd-kind-icon">running</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_scheduler_.scheduler.html#timer" class="tsd-kind-icon">timer</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
@@ -1308,10 +1578,10 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_core_scheduler_.scheduler.html#off" class="tsd-kind-icon">off</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_core_scheduler_.scheduler.html#on" class="tsd-kind-icon">on</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_core_scheduler_.scheduler.html#once" class="tsd-kind-icon">once</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -1332,7 +1602,7 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="_core_scheduler_.scheduler.html#releasemasterlock" class="tsd-kind-icon">release<wbr>Master<wbr>Lock</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_core_scheduler_.scheduler.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
@@ -1357,6 +1627,9 @@ scheduler.<span class="hljs-keyword">on</span><span class="hljs-params">(<span c
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_core_scheduler_.html#schedulerevent" class="tsd-kind-icon">Scheduler<wbr>Event</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

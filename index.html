@@ -215,7 +215,7 @@
   scheduler.on(<span class="hljs-string">"poll"</span>, () =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"scheduler polling"</span>);
   });
-  scheduler.on(<span class="hljs-string">"master"</span>, state =&gt; {
+  scheduler.on(<span class="hljs-string">"master"</span>, () =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"scheduler became master"</span>);
   });
   scheduler.on(<span class="hljs-string">"error"</span>, error =&gt; {

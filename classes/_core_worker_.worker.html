@@ -69,48 +69,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<a href="#events" id="events" style="color: inherit; text-decoration: none;">
-							<h2>Events</h2>
-						</a>
-						<pre><code>worker.on(<span class="hljs-string">"start"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker started"</span>);
-});
-worker.on(<span class="hljs-string">"end"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker ended"</span>);
-});
-worker.on(<span class="hljs-string">"cleaning_worker"</span>, <span class="hljs-function">(<span class="hljs-params">worker, pid</span>) =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`cleaning old worker <span class="hljs-subst">${worker}</span>`</span>);
-});
-worker.on(<span class="hljs-string">"poll"</span>, <span class="hljs-function"><span class="hljs-params">queue</span> =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`worker polling <span class="hljs-subst">${queue}</span>`</span>);
-});
-worker.on(<span class="hljs-string">"ping"</span>, <span class="hljs-function"><span class="hljs-params">time</span> =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`worker check in @ <span class="hljs-subst">${time}</span>`</span>);
-});
-worker.on(<span class="hljs-string">"job"</span>, <span class="hljs-function">(<span class="hljs-params">queue, job</span>) =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`working job <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span>`</span>);
-});
-worker.on(<span class="hljs-string">"reEnqueue"</span>, <span class="hljs-function">(<span class="hljs-params">queue, job, plugin</span>) =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`reEnqueue job (<span class="hljs-subst">${plugin}</span>) <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span>`</span>);
-});
-worker.on(<span class="hljs-string">"success"</span>, <span class="hljs-function">(<span class="hljs-params">queue, job, result</span>) =&gt;</span> {
- <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`job success <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span> &gt;&gt; <span class="hljs-subst">${result}</span>`</span>);
-});
-worker.on(<span class="hljs-string">"failure"</span>, <span class="hljs-function">(<span class="hljs-params">queue, job, failure</span>) =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`job failure <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span> &gt;&gt; <span class="hljs-subst">${failure}</span>`</span>);
-});
-worker.on(<span class="hljs-string">"error"</span>, <span class="hljs-function">(<span class="hljs-params">error, queue, job</span>) =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`error <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span>  &gt;&gt; <span class="hljs-subst">${error}</span>`</span>);
-});
-worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker paused"</span>);
-});</code></pre>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -144,8 +102,8 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_worker_.worker.html#jobs" class="tsd-kind-icon">jobs</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_worker_.worker.html#name" class="tsd-kind-icon">name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_worker_.worker.html#options" class="tsd-kind-icon">options</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_worker_.worker.html#originalqueue" class="tsd-kind-icon">original<wbr>Queue</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_worker_.worker.html#pingtimer" class="tsd-kind-icon">ping<wbr>Timer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_worker_.worker.html#originalqueue" class="tsd-kind-icon">original<wbr>Queue</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_worker_.worker.html#pingtimer" class="tsd-kind-icon">ping<wbr>Timer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_worker_.worker.html#queue" class="tsd-kind-icon">queue</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_worker_.worker.html#queueobject" class="tsd-kind-icon">queue<wbr>Object</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_worker_.worker.html#queues" class="tsd-kind-icon">queues</a></li>
@@ -174,8 +132,8 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_worker_.worker.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_worker_.worker.html#listeners" class="tsd-kind-icon">listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_worker_.worker.html#off" class="tsd-kind-icon">off</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_worker_.worker.html#on" class="tsd-kind-icon">on</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_worker_.worker.html#once" class="tsd-kind-icon">once</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_core_worker_.worker.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_core_worker_.worker.html#once" class="tsd-kind-icon">once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_worker_.worker.html#pause" class="tsd-kind-icon">pause</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_worker_.worker.html#perform" class="tsd-kind-icon">perform</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_worker_.worker.html#performinline" class="tsd-kind-icon">perform<wbr>Inline</a></li>
@@ -184,7 +142,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_worker_.worker.html#prependlistener" class="tsd-kind-icon">prepend<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_worker_.worker.html#prependoncelistener" class="tsd-kind-icon">prepend<wbr>Once<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_worker_.worker.html#rawlisteners" class="tsd-kind-icon">raw<wbr>Listeners</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_worker_.worker.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_core_worker_.worker.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_worker_.worker.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_worker_.worker.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_worker_.worker.html#start" class="tsd-kind-icon">start</a></li>
@@ -211,7 +169,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L73">core/worker.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L100">core/worker.ts:100</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -238,7 +196,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">connection<span class="tsd-signature-symbol">:</span> <a href="_core_connection_.connection.html" class="tsd-signature-type">Connection</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L71">core/worker.ts:71</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L33">core/worker.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -248,7 +206,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L64">core/worker.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L26">core/worker.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -258,17 +216,17 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L73">core/worker.ts:73</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L35">core/worker.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="job" class="tsd-anchor"></a>
 					<h3>job</h3>
-					<div class="tsd-signature tsd-kind-icon">job<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a></div>
+					<div class="tsd-signature tsd-kind-icon">job<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L70">core/worker.ts:70</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L32">core/worker.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -278,7 +236,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">jobs<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_jobs_.jobs.html" class="tsd-signature-type">Jobs</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L58">core/worker.ts:58</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L20">core/worker.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -288,7 +246,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L60">core/worker.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L22">core/worker.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -298,27 +256,27 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_options_.workeroptions.html" class="tsd-signature-type">WorkerOptions</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L57">core/worker.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L19">core/worker.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="originalqueue" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> original<wbr>Queue</h3>
+					<h3>original<wbr>Queue</h3>
 					<div class="tsd-signature tsd-kind-icon">original<wbr>Queue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L63">core/worker.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L25">core/worker.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="pingtimer" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> ping<wbr>Timer</h3>
+					<h3>ping<wbr>Timer</h3>
 					<div class="tsd-signature tsd-kind-icon">ping<wbr>Timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Timeout</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L69">core/worker.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L31">core/worker.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -328,7 +286,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">queue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L62">core/worker.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L24">core/worker.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -338,7 +296,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">queue<wbr>Object<span class="tsd-signature-symbol">:</span> <a href="_core_queue_.queue.html" class="tsd-signature-type">Queue</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L72">core/worker.ts:72</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L34">core/worker.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -348,7 +306,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">queues<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L61">core/worker.ts:61</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L23">core/worker.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -358,7 +316,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L66">core/worker.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L28">core/worker.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -368,7 +326,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">result<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L65">core/worker.ts:65</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L27">core/worker.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -378,7 +336,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">running<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L67">core/worker.ts:67</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L29">core/worker.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -388,7 +346,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">started<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L59">core/worker.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L21">core/worker.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -398,7 +356,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					<div class="tsd-signature tsd-kind-icon">working<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L68">core/worker.ts:68</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L30">core/worker.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -472,7 +430,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L457">core/worker.ts:457</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L483">core/worker.ts:483</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -489,7 +447,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L346">core/worker.ts:346</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L372">core/worker.ts:372</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -512,7 +470,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L113">core/worker.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L139">core/worker.ts:139</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -557,7 +515,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L138">core/worker.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L164">core/worker.ts:164</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -593,7 +551,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L372">core/worker.ts:372</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L398">core/worker.ts:398</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -616,7 +574,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L476">core/worker.ts:476</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L502">core/worker.ts:502</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -684,7 +642,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L128">core/worker.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L154">core/worker.ts:154</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -787,39 +745,358 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"pause"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"cleaning_worker"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"poll"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"ping"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"job"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"reEnqueue"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"success"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"failure"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"error"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from EventEmitter.on</p>
 								<p>Overrides EventEmitter.on</p>
 								<ul>
-									<li>Defined in /home/circleci/project/node_modules/@types/node/events.d.ts:21</li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L37">core/worker.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+									<h5>event: <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"pause"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L38">core/worker.ts:38</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"cleaning_worker"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>worker<span class="tsd-signature-symbol">: </span><a href="_core_worker_.worker.html" class="tsd-signature-type">Worker</a>, pid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+															<h5>worker: <a href="_core_worker_.worker.html" class="tsd-signature-type">Worker</a></h5>
+														</li>
+														<li>
+															<h5>pid: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L39">core/worker.ts:39</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"poll"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L40">core/worker.ts:40</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"ping"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>time: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L41">core/worker.ts:41</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"job"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L42">core/worker.ts:42</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"reEnqueue"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, plugin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+														<li>
+															<h5>plugin: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L46">core/worker.ts:46</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"success"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+														<li>
+															<h5>result: <span class="tsd-signature-type">any</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L50">core/worker.ts:50</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"failure"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, failure<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+														<li>
+															<h5>failure: <span class="tsd-signature-type">any</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L54">core/worker.ts:54</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"error"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span>, queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>error: <span class="tsd-signature-type">Error</span></h5>
+														</li>
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -833,39 +1110,358 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="once" class="tsd-anchor"></a>
 					<h3>once</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"pause"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"cleaning_worker"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"poll"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"ping"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"job"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"reEnqueue"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"success"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"failure"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"error"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from EventEmitter.once</p>
 								<p>Overrides EventEmitter.once</p>
 								<ul>
-									<li>Defined in /home/circleci/project/node_modules/@types/node/events.d.ts:22</li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L59">core/worker.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+									<h5>event: <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"pause"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.once</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L60">core/worker.ts:60</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"cleaning_worker"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>worker<span class="tsd-signature-symbol">: </span><a href="_core_worker_.worker.html" class="tsd-signature-type">Worker</a>, pid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+															<h5>worker: <a href="_core_worker_.worker.html" class="tsd-signature-type">Worker</a></h5>
+														</li>
+														<li>
+															<h5>pid: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.once</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L64">core/worker.ts:64</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"poll"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.once</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L65">core/worker.ts:65</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"ping"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>time: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.once</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L66">core/worker.ts:66</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"job"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.once</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L67">core/worker.ts:67</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"reEnqueue"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, plugin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+														<li>
+															<h5>plugin: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.once</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L71">core/worker.ts:71</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"success"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+														<li>
+															<h5>result: <span class="tsd-signature-type">any</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.once</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L75">core/worker.ts:75</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"failure"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, failure<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+														<li>
+															<h5>failure: <span class="tsd-signature-type">any</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.once</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L79">core/worker.ts:79</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"error"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span>, queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>error: <span class="tsd-signature-type">Error</span></h5>
+														</li>
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -889,7 +1485,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L384">core/worker.ts:384</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L410">core/worker.ts:410</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -906,7 +1502,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L215">core/worker.ts:215</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L241">core/worker.ts:241</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -929,7 +1525,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L295">core/worker.ts:295</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L321">core/worker.ts:321</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -955,7 +1551,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L414">core/worker.ts:414</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L440">core/worker.ts:440</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -972,7 +1568,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L164">core/worker.ts:164</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L190">core/worker.ts:190</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1102,25 +1698,24 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="removealllisteners" class="tsd-anchor"></a>
 					<h3>remove<wbr>All<wbr>Listeners</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">remove<wbr>All<wbr>Listeners<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>All<wbr>Listeners<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../modules/_core_worker_.html#workerevent" class="tsd-signature-type">WorkerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from EventEmitter.removeAllListeners</p>
 								<p>Overrides EventEmitter.removeAllListeners</p>
 								<ul>
-									<li>Defined in /home/circleci/project/node_modules/@types/node/events.d.ts:27</li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L84">core/worker.ts:84</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+									<h5>event: <a href="../modules/_core_worker_.html#workerevent" class="tsd-signature-type">WorkerEvent</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -1208,7 +1803,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L119">core/worker.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L145">core/worker.ts:145</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1225,7 +1820,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L488">core/worker.ts:488</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L514">core/worker.ts:514</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -1242,7 +1837,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L364">core/worker.ts:364</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L390">core/worker.ts:390</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1265,7 +1860,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L406">core/worker.ts:406</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L432">core/worker.ts:432</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1282,7 +1877,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L429">core/worker.ts:429</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L455">core/worker.ts:455</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1299,7 +1894,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/worker.ts#L394">core/worker.ts:394</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/worker.ts#L420">core/worker.ts:420</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1441,10 +2036,10 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_worker_.worker.html#options" class="tsd-kind-icon">options</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_worker_.worker.html#originalqueue" class="tsd-kind-icon">original<wbr>Queue</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_worker_.worker.html#pingtimer" class="tsd-kind-icon">ping<wbr>Timer</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -1516,10 +2111,10 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_core_worker_.worker.html#off" class="tsd-kind-icon">off</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_core_worker_.worker.html#on" class="tsd-kind-icon">on</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_core_worker_.worker.html#once" class="tsd-kind-icon">once</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
@@ -1546,7 +2141,7 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_core_worker_.worker.html#rawlisteners" class="tsd-kind-icon">raw<wbr>Listeners</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_core_worker_.worker.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
@@ -1580,6 +2175,9 @@ worker.on(<span class="hljs-string">"pause"</span>, <span class="hljs-function">
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_core_worker_.html#workerevent" class="tsd-kind-icon">Worker<wbr>Event</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="../modules/_core_worker_.html#preparejobs" class="tsd-kind-icon">prepare<wbr>Jobs</a>
 					</li>

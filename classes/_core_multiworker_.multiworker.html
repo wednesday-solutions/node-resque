@@ -69,100 +69,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<a href="#events" id="events" style="color: inherit; text-decoration: none;">
-							<h2>Events</h2>
-						</a>
-						<pre><code class="language-js"><span class="hljs-comment">// worker-class emitters</span>
-multiWorker.on(<span class="hljs-string">"start"</span>, workerId =&gt; {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] started"</span>);
-});
-multiWorker.on(<span class="hljs-string">"end"</span>, workerId =&gt; {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] ended"</span>);
-});
-multiWorker.on(<span class="hljs-string">"cleaning_worker"</span>, (workerId, worker, pid) =&gt; {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"cleaning old worker "</span> + worker);
-});
-multiWorker.on(<span class="hljs-string">"poll"</span>, (workerId, queue) =&gt; {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] polling "</span> + queue);
-});
-multiWorker.on(<span class="hljs-string">"ping"</span>, (workerId, time) =&gt; {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] check in @ "</span> + time);
-});
-multiWorker.on(<span class="hljs-string">"job"</span>, (workerId, queue, job) =&gt; {
-  <span class="hljs-built_in">console</span>.log(
-    <span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] working job "</span> + queue + <span class="hljs-string">" "</span> + <span class="hljs-built_in">JSON</span>.stringify(job)
-  );
-});
-multiWorker.on(<span class="hljs-string">"reEnqueue"</span>, (workerId, queue, job, plugin) =&gt; {
-  <span class="hljs-built_in">console</span>.log(
-    <span class="hljs-string">"worker["</span> +
-      workerId +
-      <span class="hljs-string">"] reEnqueue job ("</span> +
-      plugin +
-      <span class="hljs-string">") "</span> +
-      queue +
-      <span class="hljs-string">" "</span> +
-      <span class="hljs-built_in">JSON</span>.stringify(job)
-  );
-});
-multiWorker.on(<span class="hljs-string">"success"</span>, (workerId, queue, job, result) =&gt; {
-  <span class="hljs-built_in">console</span>.log(
-    <span class="hljs-string">"worker["</span> +
-      workerId +
-      <span class="hljs-string">"] job success "</span> +
-      queue +
-      <span class="hljs-string">" "</span> +
-      <span class="hljs-built_in">JSON</span>.stringify(job) +
-      <span class="hljs-string">" &gt;&gt; "</span> +
-      result
-  );
-});
-multiWorker.on(<span class="hljs-string">"failure"</span>, (workerId, queue, job, failure) =&gt; {
-  <span class="hljs-built_in">console</span>.log(
-    <span class="hljs-string">"worker["</span> +
-      workerId +
-      <span class="hljs-string">"] job failure "</span> +
-      queue +
-      <span class="hljs-string">" "</span> +
-      <span class="hljs-built_in">JSON</span>.stringify(job) +
-      <span class="hljs-string">" &gt;&gt; "</span> +
-      failure
-  );
-});
-multiWorker.on(<span class="hljs-string">"error"</span>, (workerId, queue, job, error) =&gt; {
-  <span class="hljs-built_in">console</span>.log(
-    <span class="hljs-string">"worker["</span> +
-      workerId +
-      <span class="hljs-string">"] error "</span> +
-      queue +
-      <span class="hljs-string">" "</span> +
-      <span class="hljs-built_in">JSON</span>.stringify(job) +
-      <span class="hljs-string">" &gt;&gt; "</span> +
-      error
-  );
-});
-multiWorker.on(<span class="hljs-string">"pause"</span>, workerId =&gt; {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] paused"</span>);
-});</code></pre>
-						<pre><code class="language-js"><span class="hljs-comment">// multiWorker-specfic emitters</span>
-multiWorker.on(<span class="hljs-string">"internalError"</span>, error =&gt; {
-  <span class="hljs-built_in">console</span>.log(error);
-});
-multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, delay) =&gt; {
-  <span class="hljs-built_in">console</span>.log(
-    <span class="hljs-string">"*** checked for worker status: "</span> +
-      verb +
-      <span class="hljs-string">" (event loop delay: "</span> +
-      delay +
-      <span class="hljs-string">"ms)"</span>
-  );
-});</code></pre>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -191,14 +97,14 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_multiworker_.multiworker.html#checktimer" class="tsd-kind-icon">check<wbr>Timer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_multiworker_.multiworker.html#connection" class="tsd-kind-icon">connection</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_multiworker_.multiworker.html#eventloopblocked" class="tsd-kind-icon">event<wbr>Loop<wbr>Blocked</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_multiworker_.multiworker.html#eventloopcheckcounter" class="tsd-kind-icon">event<wbr>Loop<wbr>Check<wbr>Counter</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_multiworker_.multiworker.html#eventloopdelay" class="tsd-kind-icon">event<wbr>Loop<wbr>Delay</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_multiworker_.multiworker.html#eventloopblocked" class="tsd-kind-icon">event<wbr>Loop<wbr>Blocked</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_multiworker_.multiworker.html#eventloopcheckcounter" class="tsd-kind-icon">event<wbr>Loop<wbr>Check<wbr>Counter</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_multiworker_.multiworker.html#eventloopdelay" class="tsd-kind-icon">event<wbr>Loop<wbr>Delay</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_multiworker_.multiworker.html#jobs" class="tsd-kind-icon">jobs</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_multiworker_.multiworker.html#name" class="tsd-kind-icon">name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_multiworker_.multiworker.html#options" class="tsd-kind-icon">options</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_multiworker_.multiworker.html#running" class="tsd-kind-icon">running</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_multiworker_.multiworker.html#stopinprocess" class="tsd-kind-icon">stop<wbr>InProcess</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_multiworker_.multiworker.html#stopinprocess" class="tsd-kind-icon">stop<wbr>InProcess</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_multiworker_.multiworker.html#workers" class="tsd-kind-icon">workers</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_multiworker_.multiworker.html#working" class="tsd-kind-icon">working</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_core_multiworker_.multiworker.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a></li>
@@ -219,7 +125,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_multiworker_.multiworker.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_multiworker_.multiworker.html#listeners" class="tsd-kind-icon">listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_multiworker_.multiworker.html#off" class="tsd-kind-icon">off</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_multiworker_.multiworker.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_core_multiworker_.multiworker.html#on" class="tsd-kind-icon">on</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_multiworker_.multiworker.html#once" class="tsd-kind-icon">once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_multiworker_.multiworker.html#prependlistener" class="tsd-kind-icon">prepend<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_multiworker_.multiworker.html#prependoncelistener" class="tsd-kind-icon">prepend<wbr>Once<wbr>Listener</a></li>
@@ -249,7 +155,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L113">core/multiWorker.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L58">core/multiWorker.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -274,7 +180,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 					<div class="tsd-signature tsd-kind-icon">check<wbr>Timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Timeout</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L113">core/multiWorker.ts:113</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L22">core/multiWorker.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -284,37 +190,37 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 					<div class="tsd-signature tsd-kind-icon">connection<span class="tsd-signature-symbol">:</span> <a href="_core_connection_.connection.html" class="tsd-signature-type">Connection</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L112">core/multiWorker.ts:112</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L21">core/multiWorker.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="eventloopblocked" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> event<wbr>Loop<wbr>Blocked</h3>
+					<h3>event<wbr>Loop<wbr>Blocked</h3>
 					<div class="tsd-signature tsd-kind-icon">event<wbr>Loop<wbr>Blocked<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L108">core/multiWorker.ts:108</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L17">core/multiWorker.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="eventloopcheckcounter" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> event<wbr>Loop<wbr>Check<wbr>Counter</h3>
+					<h3>event<wbr>Loop<wbr>Check<wbr>Counter</h3>
 					<div class="tsd-signature tsd-kind-icon">event<wbr>Loop<wbr>Check<wbr>Counter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L110">core/multiWorker.ts:110</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L19">core/multiWorker.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="eventloopdelay" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> event<wbr>Loop<wbr>Delay</h3>
+					<h3>event<wbr>Loop<wbr>Delay</h3>
 					<div class="tsd-signature tsd-kind-icon">event<wbr>Loop<wbr>Delay<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L109">core/multiWorker.ts:109</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L18">core/multiWorker.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -324,7 +230,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 					<div class="tsd-signature tsd-kind-icon">jobs<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_jobs_.jobs.html" class="tsd-signature-type">Jobs</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L103">core/multiWorker.ts:103</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L12">core/multiWorker.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -334,7 +240,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L105">core/multiWorker.ts:105</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L14">core/multiWorker.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -344,7 +250,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_options_.multiworkeroptions.html" class="tsd-signature-type">MultiWorkerOptions</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L102">core/multiWorker.ts:102</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L11">core/multiWorker.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -354,17 +260,17 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 					<div class="tsd-signature tsd-kind-icon">running<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L106">core/multiWorker.ts:106</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L15">core/multiWorker.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="stopinprocess" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> stop<wbr>InProcess</h3>
+					<h3>stop<wbr>InProcess</h3>
 					<div class="tsd-signature tsd-kind-icon">stop<wbr>InProcess<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L111">core/multiWorker.ts:111</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L20">core/multiWorker.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -374,7 +280,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 					<div class="tsd-signature tsd-kind-icon">workers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_core_worker_.worker.html" class="tsd-signature-type">Worker</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L104">core/multiWorker.ts:104</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L13">core/multiWorker.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -384,7 +290,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 					<div class="tsd-signature tsd-kind-icon">working<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L107">core/multiWorker.ts:107</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L16">core/multiWorker.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -412,7 +318,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L158">core/multiWorker.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L102">core/multiWorker.ts:102</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -475,7 +381,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L225">core/multiWorker.ts:225</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L169">core/multiWorker.ts:169</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -492,7 +398,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L334">core/multiWorker.ts:334</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L278">core/multiWorker.ts:278</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -509,7 +415,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L314">core/multiWorker.ts:314</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L258">core/multiWorker.ts:258</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -560,7 +466,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L353">core/multiWorker.ts:353</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L297">core/multiWorker.ts:297</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -701,39 +607,465 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"cleaning_worker"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"poll"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"ping"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"job"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"reEnqueue"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"success"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"failure"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"error"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"pause"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"multiWorkerAction"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from EventEmitter.on</p>
 								<p>Overrides EventEmitter.on</p>
 								<ul>
-									<li>Defined in /home/circleci/project/node_modules/@types/node/events.d.ts:21</li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L24">core/multiWorker.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+									<h5>event: <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>workerId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+															<h5>workerId: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L25">core/multiWorker.ts:25</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"cleaning_worker"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>workerId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, worker<span class="tsd-signature-symbol">: </span><a href="_core_worker_.worker.html" class="tsd-signature-type">Worker</a>, pid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>workerId: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>worker: <a href="_core_worker_.worker.html" class="tsd-signature-type">Worker</a></h5>
+														</li>
+														<li>
+															<h5>pid: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L29">core/multiWorker.ts:29</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"poll"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>workerId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>workerId: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L30">core/multiWorker.ts:30</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"ping"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>workerId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>workerId: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>time: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L31">core/multiWorker.ts:31</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"job"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>workerId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>workerId: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L35">core/multiWorker.ts:35</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"reEnqueue"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>workerId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, plugin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>workerId: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+														<li>
+															<h5>plugin: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L39">core/multiWorker.ts:39</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"success"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>workerId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>workerId: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+														<li>
+															<h5>result: <span class="tsd-signature-type">any</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L43">core/multiWorker.ts:43</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"failure"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>workerId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, failure<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>workerId: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+														<li>
+															<h5>failure: <span class="tsd-signature-type">any</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L47">core/multiWorker.ts:47</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"error"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>workerId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, job<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>workerId: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>queue: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>job: <a href="../interfaces/_types_job_.job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+														<li>
+															<h5>error: <span class="tsd-signature-type">any</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L51">core/multiWorker.ts:51</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"pause"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>workerId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>workerId: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L52">core/multiWorker.ts:52</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"multiWorkerAction"</span></h5>
+								</li>
+								<li>
+									<h5>cb: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>verb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, delay<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>verb: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>delay: <span class="tsd-signature-type">number</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1016,7 +1348,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L343">core/multiWorker.ts:343</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L287">core/multiWorker.ts:287</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1033,7 +1365,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L170">core/multiWorker.ts:170</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L114">core/multiWorker.ts:114</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1050,7 +1382,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L348">core/multiWorker.ts:348</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L292">core/multiWorker.ts:292</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1067,7 +1399,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/3bbd1f8/src/core/multiWorker.ts#L357">core/multiWorker.ts:357</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/160c34b/src/core/multiWorker.ts#L301">core/multiWorker.ts:301</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -1188,13 +1520,13 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_multiworker_.multiworker.html#connection" class="tsd-kind-icon">connection</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_multiworker_.multiworker.html#eventloopblocked" class="tsd-kind-icon">event<wbr>Loop<wbr>Blocked</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_multiworker_.multiworker.html#eventloopcheckcounter" class="tsd-kind-icon">event<wbr>Loop<wbr>Check<wbr>Counter</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_multiworker_.multiworker.html#eventloopdelay" class="tsd-kind-icon">event<wbr>Loop<wbr>Delay</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -1209,7 +1541,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_multiworker_.multiworker.html#running" class="tsd-kind-icon">running</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_multiworker_.multiworker.html#stopinprocess" class="tsd-kind-icon">stop<wbr>InProcess</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -1257,7 +1589,7 @@ multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, dela
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_core_multiworker_.multiworker.html#off" class="tsd-kind-icon">off</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_core_multiworker_.multiworker.html#on" class="tsd-kind-icon">on</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
