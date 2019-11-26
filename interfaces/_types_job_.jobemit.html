@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;core/queue&quot; | node-resque</title>
+	<title>JobEmit | node-resque</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,59 +56,62 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_core_queue_.html">&quot;core/queue&quot;</a>
+					<a href="../modules/_types_job_.html">&quot;types/job&quot;</a>
+				</li>
+				<li>
+					<a href="_types_job_.jobemit.html">JobEmit</a>
 				</li>
 			</ul>
-			<h1>External module &quot;core/queue&quot;</h1>
+			<h1>Interface JobEmit</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">JobEmit</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_core_queue_.queue.html" class="tsd-kind-icon">Queue</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-not-exported">
-							<h3>Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_core_queue_.html#arrayify" class="tsd-kind-icon">arrayify</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_job_.jobemit.html#class" class="tsd-kind-icon">class</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_job_.jobemit.html#queue" class="tsd-kind-icon">queue</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-					<a name="arrayify" class="tsd-anchor"></a>
-					<h3>arrayify</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">arrayify<span class="tsd-signature-symbol">(</span>o<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c386398/src/core/queue.ts#L9">core/queue.ts:9</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>o: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-						</li>
-					</ul>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="class" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> class</h3>
+					<div class="tsd-signature tsd-kind-icon">class<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c386398/src/types/job.ts#L13">types/job.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="queue" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> queue</h3>
+					<div class="tsd-signature tsd-kind-icon">queue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c386398/src/types/job.ts#L12">types/job.ts:12</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -119,69 +122,81 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_core_connection_.html">&quot;core/connection&quot;</a>
+						<a href="../modules/_core_connection_.html">&quot;core/connection&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_core_multiworker_.html">&quot;core/multi<wbr>Worker&quot;</a>
+						<a href="../modules/_core_multiworker_.html">&quot;core/multi<wbr>Worker&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_core_plugin_.html">&quot;core/plugin&quot;</a>
+						<a href="../modules/_core_plugin_.html">&quot;core/plugin&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_core_pluginrunner_.html">&quot;core/plugin<wbr>Runner&quot;</a>
+						<a href="../modules/_core_pluginrunner_.html">&quot;core/plugin<wbr>Runner&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_core_queue_.html">&quot;core/queue&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_core_scheduler_.html">&quot;core/scheduler&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_core_worker_.html">&quot;core/worker&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_index_.html">&quot;index&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_plugins_delayqueuelock_.html">&quot;plugins/<wbr>Delay<wbr>Queue<wbr>Lock&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_plugins_joblock_.html">&quot;plugins/<wbr>Job<wbr>Lock&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_plugins_noop_.html">&quot;plugins/<wbr>Noop&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_plugins_queuelock_.html">&quot;plugins/<wbr>Queue<wbr>Lock&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_plugins_retry_.html">&quot;plugins/<wbr>Retry&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_types_errorpayload_.html">&quot;types/error<wbr>Payload&quot;</a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_core_queue_.html">&quot;core/queue&quot;</a>
+						<a href="../modules/_types_job_.html">&quot;types/job&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_core_scheduler_.html">&quot;core/scheduler&quot;</a>
+						<a href="../modules/_types_jobs_.html">&quot;types/jobs&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_core_worker_.html">&quot;core/worker&quot;</a>
+						<a href="../modules/_types_options_.html">&quot;types/options&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_index_.html">&quot;index&quot;</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_plugins_delayqueuelock_.html">&quot;plugins/<wbr>Delay<wbr>Queue<wbr>Lock&quot;</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_plugins_joblock_.html">&quot;plugins/<wbr>Job<wbr>Lock&quot;</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_plugins_noop_.html">&quot;plugins/<wbr>Noop&quot;</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_plugins_queuelock_.html">&quot;plugins/<wbr>Queue<wbr>Lock&quot;</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_plugins_retry_.html">&quot;plugins/<wbr>Retry&quot;</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_types_errorpayload_.html">&quot;types/error<wbr>Payload&quot;</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_types_job_.html">&quot;types/job&quot;</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_types_jobs_.html">&quot;types/jobs&quot;</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_types_options_.html">&quot;types/options&quot;</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_utils_eventloopdelay_.html">&quot;utils/event<wbr>Loop<wbr>Delay&quot;</a>
+						<a href="../modules/_utils_eventloopdelay_.html">&quot;utils/event<wbr>Loop<wbr>Delay&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_core_queue_.queue.html" class="tsd-kind-icon">Queue</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_types_job_.job.html" class="tsd-kind-icon">Job</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_core_queue_.html#arrayify" class="tsd-kind-icon">arrayify</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_types_job_.jobemit.html" class="tsd-kind-icon">Job<wbr>Emit</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_types_job_.jobemit.html#class" class="tsd-kind-icon">class</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_types_job_.jobemit.html#queue" class="tsd-kind-icon">queue</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>
