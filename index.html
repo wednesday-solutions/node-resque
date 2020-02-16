@@ -194,11 +194,17 @@
   worker.on(<span class="hljs-string">"reEnqueue"</span>, (queue, job, plugin) =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`reEnqueue job (<span class="hljs-subst">${plugin}</span>) <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span>`</span>);
   });
-  worker.on(<span class="hljs-string">"success"</span>, (queue, job, result) =&gt; {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`job success <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span> &gt;&gt; <span class="hljs-subst">${result}</span>`</span>);
+  worker.on(<span class="hljs-string">"success"</span>, (queue, job, result, duration) =&gt; {
+    <span class="hljs-built_in">console</span>.log(
+      <span class="hljs-string">`job success <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span> &gt;&gt; <span class="hljs-subst">${result}</span> (<span class="hljs-subst">${duration}</span>ms)`</span>
+    );
   });
-  worker.on(<span class="hljs-string">"failure"</span>, (queue, job, failure) =&gt; {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`job failure <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span> &gt;&gt; <span class="hljs-subst">${failure}</span>`</span>);
+  worker.on(<span class="hljs-string">"failure"</span>, (queue, job, failure, duration) =&gt; {
+    <span class="hljs-built_in">console</span>.log(
+      <span class="hljs-string">`job failure <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(
+        job
+      )}</span> &gt;&gt; <span class="hljs-subst">${failure}</span> (<span class="hljs-subst">${duration}</span>ms)`</span>
+    );
   });
   worker.on(<span class="hljs-string">"error"</span>, (error, queue, job) =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`error <span class="hljs-subst">${queue}</span> <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(job)}</span>  &gt;&gt; <span class="hljs-subst">${error}</span>`</span>);
