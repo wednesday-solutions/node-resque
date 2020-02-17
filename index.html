@@ -334,6 +334,7 @@ worker.start();
 					<li>If you plan to run more than one worker per nodejs process, be sure to name them something distinct. Names <strong>must</strong> follow the pattern <code>hostname:pid+unique_id</code>. For example:</li>
 					<li>For the Retry plugin, a success message will be emitted from the worker on each attempt (even if the job fails) except the final retry. The final retry will emit a failure message instead.</li>
 				</ul>
+				<p>If you want to learn more about running Node-Resque with docker, please view the examples here: <a href="https://github.com/actionhero/node-resque/tree/master/examples/docker">https://github.com/actionhero/node-resque/tree/master/examples/docker</a></p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> name = os.hostname() + <span class="hljs-string">":"</span> + process.pid + <span class="hljs-string">"+"</span> + counter;
 <span class="hljs-keyword">var</span> worker = <span class="hljs-keyword">new</span> NodeResque.Worker(
   { <span class="hljs-attr">connection</span>: connectionDetails, <span class="hljs-attr">queues</span>: <span class="hljs-string">"math"</span>, <span class="hljs-attr">name</span>: name },
