@@ -97,7 +97,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#connection" class="tsd-kind-icon">connection</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#jobs" class="tsd-kind-icon">jobs</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#master" class="tsd-kind-icon">master</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#leader" class="tsd-kind-icon">leader</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#name" class="tsd-kind-icon">name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#options" class="tsd-kind-icon">options</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#processing" class="tsd-kind-icon">processing</a></li>
@@ -120,9 +120,9 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#forcecleanworker" class="tsd-kind-icon">force<wbr>Clean<wbr>Worker</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#leaderkey" class="tsd-kind-icon">leader<wbr>Key</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#listeners" class="tsd-kind-icon">listeners</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#masterkey" class="tsd-kind-icon">master<wbr>Key</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#nextdelayedtimestamp" class="tsd-kind-icon">next<wbr>Delayed<wbr>Timestamp</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#nextitemfortimestamp" class="tsd-kind-icon">next<wbr>Item<wbr>For<wbr>Timestamp</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#off" class="tsd-kind-icon">off</a></li>
@@ -133,13 +133,13 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#prependlistener" class="tsd-kind-icon">prepend<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#prependoncelistener" class="tsd-kind-icon">prepend<wbr>Once<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#rawlisteners" class="tsd-kind-icon">raw<wbr>Listeners</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#releasemasterlock" class="tsd-kind-icon">release<wbr>Master<wbr>Lock</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#releaseleaderlock" class="tsd-kind-icon">release<wbr>Leader<wbr>Lock</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_core_scheduler_.scheduler.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_core_scheduler_.scheduler.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_scheduler_.scheduler.html#start" class="tsd-kind-icon">start</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#transfer" class="tsd-kind-icon">transfer</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#tryformaster" class="tsd-kind-icon">try<wbr>For<wbr>Master</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_scheduler_.scheduler.html#tryforleader" class="tsd-kind-icon">try<wbr>For<wbr>Leader</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_core_scheduler_.scheduler.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a></li>
 							</ul>
 						</section>
@@ -158,7 +158,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L61">src/core/scheduler.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L61">src/core/scheduler.ts:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -185,7 +185,7 @@
 					<div class="tsd-signature tsd-kind-icon">connection<span class="tsd-signature-symbol">:</span> <a href="_core_connection_.connection.html" class="tsd-signature-type">Connection</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L21">src/core/scheduler.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L21">src/core/scheduler.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -195,17 +195,17 @@
 					<div class="tsd-signature tsd-kind-icon">jobs<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_jobs_.jobs.html" class="tsd-signature-type">Jobs</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L15">src/core/scheduler.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L15">src/core/scheduler.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="master" class="tsd-anchor"></a>
-					<h3>master</h3>
-					<div class="tsd-signature tsd-kind-icon">master<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="leader" class="tsd-anchor"></a>
+					<h3>leader</h3>
+					<div class="tsd-signature tsd-kind-icon">leader<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L17">src/core/scheduler.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L17">src/core/scheduler.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -215,7 +215,7 @@
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L16">src/core/scheduler.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L16">src/core/scheduler.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -225,7 +225,7 @@
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_options_.scheduleroptions.html" class="tsd-signature-type">SchedulerOptions</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L14">src/core/scheduler.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L14">src/core/scheduler.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -235,7 +235,7 @@
 					<div class="tsd-signature tsd-kind-icon">processing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L19">src/core/scheduler.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L19">src/core/scheduler.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -245,7 +245,7 @@
 					<div class="tsd-signature tsd-kind-icon">queue<span class="tsd-signature-symbol">:</span> <a href="_core_queue_.queue.html" class="tsd-signature-type">Queue</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L20">src/core/scheduler.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L20">src/core/scheduler.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -255,7 +255,7 @@
 					<div class="tsd-signature tsd-kind-icon">running<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L18">src/core/scheduler.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L18">src/core/scheduler.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -265,7 +265,7 @@
 					<div class="tsd-signature tsd-kind-icon">timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Timeout</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L22">src/core/scheduler.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L22">src/core/scheduler.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -339,7 +339,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L280">src/core/scheduler.ts:280</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L282">src/core/scheduler.ts:282</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -356,7 +356,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L266">src/core/scheduler.ts:266</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L268">src/core/scheduler.ts:268</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -379,7 +379,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L90">src/core/scheduler.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L90">src/core/scheduler.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -424,7 +424,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L105">src/core/scheduler.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L105">src/core/scheduler.ts:105</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -441,7 +441,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L241">src/core/scheduler.ts:241</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L243">src/core/scheduler.ts:243</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -483,7 +483,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L314">src/core/scheduler.ts:314</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L316">src/core/scheduler.ts:316</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -515,6 +515,23 @@
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="leaderkey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> leader<wbr>Key</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">leader<wbr>Key<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L176">src/core/scheduler.ts:176</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -569,23 +586,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="masterkey" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> master<wbr>Key</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">master<wbr>Key<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L176">src/core/scheduler.ts:176</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="nextdelayedtimestamp" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> next<wbr>Delayed<wbr>Timestamp</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
@@ -595,7 +595,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L225">src/core/scheduler.ts:225</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L227">src/core/scheduler.ts:227</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -612,7 +612,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L251">src/core/scheduler.ts:251</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L253">src/core/scheduler.ts:253</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -675,7 +675,7 @@
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"poll"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"master"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"poll"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"leader"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"cleanStuckWorker"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>workerName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, errorPayload<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_errorpayload_.errorpayload.html" class="tsd-signature-type">ErrorPayload</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"error"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span>, queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"workingTimestamp"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>timestamp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
@@ -686,13 +686,13 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_core_connection_.connection.html">Connection</a>.<a href="_core_connection_.connection.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L24">src/core/scheduler.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L24">src/core/scheduler.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"poll"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"master"</span></h5>
+									<h5>event: <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"poll"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"leader"</span></h5>
 								</li>
 								<li>
 									<h5>cb: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
@@ -716,7 +716,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_core_connection_.connection.html">Connection</a>.<a href="_core_connection_.connection.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L25">src/core/scheduler.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L25">src/core/scheduler.ts:25</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -758,7 +758,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_core_connection_.connection.html">Connection</a>.<a href="_core_connection_.connection.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L29">src/core/scheduler.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L29">src/core/scheduler.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -797,7 +797,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_core_connection_.connection.html">Connection</a>.<a href="_core_connection_.connection.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L30">src/core/scheduler.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L30">src/core/scheduler.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -833,7 +833,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_core_connection_.connection.html">Connection</a>.<a href="_core_connection_.connection.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L31">src/core/scheduler.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L31">src/core/scheduler.ts:31</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -874,7 +874,7 @@
 					<a name="once" class="tsd-anchor"></a>
 					<h3>once</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"poll"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"master"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"poll"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"leader"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"cleanStuckWorker"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>workerName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, errorPayload<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_errorpayload_.errorpayload.html" class="tsd-signature-type">ErrorPayload</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"error"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span>, queue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"workingTimestamp"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>timestamp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
@@ -885,13 +885,13 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_core_connection_.connection.html">Connection</a>.<a href="_core_connection_.connection.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L36">src/core/scheduler.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L36">src/core/scheduler.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"poll"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"master"</span></h5>
+									<h5>event: <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"poll"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"leader"</span></h5>
 								</li>
 								<li>
 									<h5>cb: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
@@ -915,7 +915,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_core_connection_.connection.html">Connection</a>.<a href="_core_connection_.connection.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L37">src/core/scheduler.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L37">src/core/scheduler.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -957,7 +957,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_core_connection_.connection.html">Connection</a>.<a href="_core_connection_.connection.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L41">src/core/scheduler.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L41">src/core/scheduler.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -996,7 +996,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_core_connection_.connection.html">Connection</a>.<a href="_core_connection_.connection.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L42">src/core/scheduler.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L42">src/core/scheduler.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1032,7 +1032,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_core_connection_.connection.html">Connection</a>.<a href="_core_connection_.connection.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L43">src/core/scheduler.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L43">src/core/scheduler.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1079,7 +1079,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L139">src/core/scheduler.ts:139</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L139">src/core/scheduler.ts:139</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -1096,7 +1096,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L168">src/core/scheduler.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L168">src/core/scheduler.ts:168</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1221,16 +1221,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="releasemasterlock" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> release<wbr>Master<wbr>Lock</h3>
+					<a name="releaseleaderlock" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> release<wbr>Leader<wbr>Lock</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">release<wbr>Master<wbr>Lock<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">release<wbr>Leader<wbr>Lock<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L210">src/core/scheduler.ts:210</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L212">src/core/scheduler.ts:212</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1248,7 +1248,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_core_connection_.connection.html">Connection</a>.<a href="_core_connection_.connection.html#removealllisteners">removeAllListeners</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L48">src/core/scheduler.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L48">src/core/scheduler.ts:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1342,7 +1342,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L95">src/core/scheduler.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L95">src/core/scheduler.ts:95</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1359,7 +1359,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L261">src/core/scheduler.ts:261</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L263">src/core/scheduler.ts:263</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1376,16 +1376,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="tryformaster" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> try<wbr>For<wbr>Master</h3>
+					<a name="tryforleader" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> try<wbr>For<wbr>Leader</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">try<wbr>For<wbr>Master<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">try<wbr>For<wbr>Leader<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/c3e90ec/src/core/scheduler.ts#L180">src/core/scheduler.ts:180</a></li>
+									<li>Defined in <a href="https://github.com/actionhero/node-resque/blob/fd436ef/src/core/scheduler.ts#L182">src/core/scheduler.ts:182</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1507,7 +1507,7 @@
 								<a href="_core_scheduler_.scheduler.html#jobs" class="tsd-kind-icon">jobs</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_core_scheduler_.scheduler.html#master" class="tsd-kind-icon">master</a>
+								<a href="_core_scheduler_.scheduler.html#leader" class="tsd-kind-icon">leader</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_core_scheduler_.scheduler.html#name" class="tsd-kind-icon">name</a>
@@ -1560,14 +1560,14 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_core_scheduler_.scheduler.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_core_scheduler_.scheduler.html#leaderkey" class="tsd-kind-icon">leader<wbr>Key</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_core_scheduler_.scheduler.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_core_scheduler_.scheduler.html#listeners" class="tsd-kind-icon">listeners</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="_core_scheduler_.scheduler.html#masterkey" class="tsd-kind-icon">master<wbr>Key</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="_core_scheduler_.scheduler.html#nextdelayedtimestamp" class="tsd-kind-icon">next<wbr>Delayed<wbr>Timestamp</a>
@@ -1600,7 +1600,7 @@
 								<a href="_core_scheduler_.scheduler.html#rawlisteners" class="tsd-kind-icon">raw<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="_core_scheduler_.scheduler.html#releasemasterlock" class="tsd-kind-icon">release<wbr>Master<wbr>Lock</a>
+								<a href="_core_scheduler_.scheduler.html#releaseleaderlock" class="tsd-kind-icon">release<wbr>Leader<wbr>Lock</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_core_scheduler_.scheduler.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a>
@@ -1618,7 +1618,7 @@
 								<a href="_core_scheduler_.scheduler.html#transfer" class="tsd-kind-icon">transfer</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="_core_scheduler_.scheduler.html#tryformaster" class="tsd-kind-icon">try<wbr>For<wbr>Master</a>
+								<a href="_core_scheduler_.scheduler.html#tryforleader" class="tsd-kind-icon">try<wbr>For<wbr>Leader</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="_core_scheduler_.scheduler.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a>

@@ -222,8 +222,8 @@
   scheduler.on(<span class="hljs-string">"poll"</span>, () =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"scheduler polling"</span>);
   });
-  scheduler.on(<span class="hljs-string">"master"</span>, () =&gt; {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"scheduler became master"</span>);
+  scheduler.on(<span class="hljs-string">"leader"</span>, () =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"scheduler became leader"</span>);
   });
   scheduler.on(<span class="hljs-string">"error"</span>, error =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`scheduler error &gt;&gt; <span class="hljs-subst">${error}</span>`</span>);
@@ -412,7 +412,7 @@ worker.start();
 					<h2>Job Schedules</h2>
 				</a>
 				<p>You may want to use node-resque to schedule jobs every minute/hour/day, like a distributed CRON system. There are a number of excellent node packages to help you with this, like <a href="https://github.com/tejasmanohar/node-schedule">node-schedule</a> and <a href="https://github.com/ncb000gt/node-cron">node-cron</a>. Node-resque makes it possible for you to use the package of your choice to schedule jobs with.</p>
-				<p>Assuming you are running node-resque across multiple machines, you will need to ensure that only one of your processes is actually scheduling the jobs. To help you with this, you can inspect which of the scheduler processes is currently acting as master, and flag only the master scheduler process to run the schedule. A full example can be found at <a href="https://github.com/actionhero/node-resque/blob/master/examples/scheduledJobs.ts">/examples/scheduledJobs.ts</a>, but the relevant section is:</p>
+				<p>Assuming you are running node-resque across multiple machines, you will need to ensure that only one of your processes is actually scheduling the jobs. To help you with this, you can inspect which of the scheduler processes is currently acting as leader, and flag only the master scheduler process to run the schedule. A full example can be found at <a href="https://github.com/actionhero/node-resque/blob/master/examples/scheduledJobs.ts">/examples/scheduledJobs.ts</a>, but the relevant section is:</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> NodeResque = <span class="hljs-built_in">require</span>(<span class="hljs-string">"node-resque"</span>);
 <span class="hljs-keyword">const</span> schedule = <span class="hljs-built_in">require</span>(<span class="hljs-string">"node-schedule"</span>);
 <span class="hljs-keyword">const</span> queue = <span class="hljs-keyword">new</span> NodeResque.Queue({ <span class="hljs-attr">connection</span>: connectionDetails }, jobs);
@@ -424,7 +424,7 @@ schedule.scheduleJob(<span class="hljs-string">"10,20,30,40,50 * * * * *"</span>
   <span class="hljs-comment">// do this job every 10 seconds, CRON style</span>
   <span class="hljs-comment">// we want to ensure that only one instance of this job is scheduled in our environment at once,</span>
   <span class="hljs-comment">// no matter how many schedulers we have running</span>
-  <span class="hljs-keyword">if</span> (scheduler.master) {
+  <span class="hljs-keyword">if</span> (scheduler.leader) {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"&gt;&gt;&gt; enqueuing a job"</span>);
     <span class="hljs-keyword">await</span> queue.enqueue(<span class="hljs-string">"time"</span>, <span class="hljs-string">"ticktock"</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toString());
   }
