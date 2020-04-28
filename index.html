@@ -298,7 +298,7 @@ worker.start();
 <span class="hljs-comment">// and when you are done</span>
 <span class="hljs-comment">// await worker.end()</span></code></pre>
 				<p>You can also pass redis client directly.</p>
-				<pre><code class="language-javascript"><span class="hljs-comment">// assume you already initialize redis client before</span>
+				<pre><code class="language-javascript"><span class="hljs-comment">// assume you already initialized redis client before</span>
 
 <span class="hljs-keyword">var</span> redisClient = <span class="hljs-keyword">new</span> Redis();
 <span class="hljs-keyword">var</span> connectionDetails = { <span class="hljs-attr">redis</span>: redisClient };
@@ -369,7 +369,12 @@ worker.start();
 				<a href="#failing-a-job" id="failing-a-job" style="color: inherit; text-decoration: none;">
 					<h3>Failing a Job</h3>
 				</a>
-				<p>We use a try/catch pattern to catch errors in your jobs. If any job throws an uncaught exception, it will be caught, and the job&#39;s payload moved to the error queue for inspection. Do not use <code>domains</code>, <code>process.onExit</code>, or any other method of &quot;catching&quot; a process crash. The error payload looks like:</p>
+				<p>We use a try/catch pattern to catch errors in your jobs. If any job throws an
+					uncaught exception, it will be caught, and the job&#39;s payload moved to the error
+					queue for inspection.
+					Do not use <a href="https://nodejs.org/api/domain.html">domain</a>, <a href="https://nodejs.org/api/process.html#process_event_exit">process.on(&quot;exit&quot;)</a>, or any other method
+				of &quot;catching&quot; a process crash.</p>
+				<p>The error payload looks like:</p>
 				<pre><code class="language-javascript">{ <span class="hljs-attr">worker</span>: <span class="hljs-string">'busted-worker-3'</span>,
   <span class="hljs-attr">queue</span>: <span class="hljs-string">'busted-queue'</span>,
   <span class="hljs-attr">payload</span>: { <span class="hljs-attr">class</span>: <span class="hljs-string">'busted_job'</span>, <span class="hljs-attr">queue</span>: <span class="hljs-string">'busted-queue'</span>, <span class="hljs-attr">args</span>: [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> ] },
