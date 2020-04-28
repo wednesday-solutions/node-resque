@@ -98,7 +98,7 @@
     <span class="hljs-attr">host</span>: <span class="hljs-string">"127.0.0.1"</span>,
     <span class="hljs-attr">password</span>: <span class="hljs-literal">null</span>,
     <span class="hljs-attr">port</span>: <span class="hljs-number">6379</span>,
-    <span class="hljs-attr">database</span>: <span class="hljs-number">0</span>
+    <span class="hljs-attr">database</span>: <span class="hljs-number">0</span>,
     <span class="hljs-comment">// namespace: 'resque',</span>
     <span class="hljs-comment">// looping: true,</span>
     <span class="hljs-comment">// options: {password: 'abc'},</span>
@@ -114,10 +114,10 @@
     <span class="hljs-attr">add</span>: {
       <span class="hljs-attr">plugins</span>: [<span class="hljs-string">"JobLock"</span>],
       <span class="hljs-attr">pluginOptions</span>: {
-        <span class="hljs-attr">JobLock</span>: {}
+        <span class="hljs-attr">JobLock</span>: {},
       },
       <span class="hljs-attr">perform</span>: <span class="hljs-keyword">async</span> (a, b) =&gt; {
-        <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {
+        <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
           setTimeout(resolve, <span class="hljs-number">1000</span>);
         });
         jobsToComplete--;
@@ -125,7 +125,7 @@
 
         <span class="hljs-keyword">const</span> answer = a + b;
         <span class="hljs-keyword">return</span> answer;
-      }
+      },
     },
     <span class="hljs-attr">subtract</span>: {
       <span class="hljs-attr">perform</span>: <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
@@ -134,14 +134,14 @@
 
         <span class="hljs-keyword">const</span> answer = a - b;
         <span class="hljs-keyword">return</span> answer;
-      }
-    }
+      },
+    },
   };
 
   <span class="hljs-comment">// just a helper for this demo</span>
   <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">tryShutdown</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">if</span> (jobsToComplete === <span class="hljs-number">0</span>) {
-      <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {
+      <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
         setTimeout(resolve, <span class="hljs-number">500</span>);
       });
       <span class="hljs-keyword">await</span> scheduler.end();
@@ -182,10 +182,10 @@
   worker.on(<span class="hljs-string">"cleaning_worker"</span>, (worker, pid) =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`cleaning old worker <span class="hljs-subst">${worker}</span>`</span>);
   });
-  worker.on(<span class="hljs-string">"poll"</span>, queue =&gt; {
+  worker.on(<span class="hljs-string">"poll"</span>, (queue) =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`worker polling <span class="hljs-subst">${queue}</span>`</span>);
   });
-  worker.on(<span class="hljs-string">"ping"</span>, time =&gt; {
+  worker.on(<span class="hljs-string">"ping"</span>, (time) =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`worker check in @ <span class="hljs-subst">${time}</span>`</span>);
   });
   worker.on(<span class="hljs-string">"job"</span>, (queue, job) =&gt; {
@@ -225,7 +225,7 @@
   scheduler.on(<span class="hljs-string">"leader"</span>, () =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"scheduler became leader"</span>);
   });
-  scheduler.on(<span class="hljs-string">"error"</span>, error =&gt; {
+  scheduler.on(<span class="hljs-string">"error"</span>, (error) =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`scheduler error &gt;&gt; <span class="hljs-subst">${error}</span>`</span>);
   });
   scheduler.on(<span class="hljs-string">"cleanStuckWorker"</span>, (workerName, errorPayload, delta) =&gt; {
@@ -233,7 +233,7 @@
       <span class="hljs-string">`failing <span class="hljs-subst">${workerName}</span> (stuck for <span class="hljs-subst">${delta}</span>s) and failing job <span class="hljs-subst">${errorPayload}</span>`</span>
     );
   });
-  scheduler.on(<span class="hljs-string">"workingTimestamp"</span>, timestamp =&gt; {
+  scheduler.on(<span class="hljs-string">"workingTimestamp"</span>, (timestamp) =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`scheduler working timestamp <span class="hljs-subst">${timestamp}</span>`</span>);
   });
   scheduler.on(<span class="hljs-string">"transferredJob"</span>, (timestamp, job) =&gt; {
@@ -245,7 +245,7 @@
   <span class="hljs-comment">// //////////////////////</span>
 
   <span class="hljs-keyword">const</span> queue = <span class="hljs-keyword">new</span> Queue({ <span class="hljs-attr">connection</span>: connectionDetails }, jobs);
-  queue.on(<span class="hljs-string">"error"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{
+  queue.on(<span class="hljs-string">"error"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
     <span class="hljs-built_in">console</span>.log(error);
   });
   <span class="hljs-keyword">await</span> queue.connect();
@@ -271,7 +271,7 @@ boot();
   <span class="hljs-attr">looping</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-attr">timeout</span>: <span class="hljs-number">5000</span>,
   <span class="hljs-attr">queues</span>: <span class="hljs-string">"*"</span>,
-  <span class="hljs-attr">name</span>: os.hostname() + <span class="hljs-string">":"</span> + process.pid
+  <span class="hljs-attr">name</span>: os.hostname() + <span class="hljs-string">":"</span> + process.pid,
 };</code></pre>
 				<p>The configuration hash passed to <code>new NodeResque.Worker</code>, <code>new NodeResque.Scheduler</code> or <code>new NodeResque.Queue</code> can also take a <code>connection</code> option.</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> connectionDetails = {
@@ -280,7 +280,7 @@ boot();
   <span class="hljs-attr">password</span>: <span class="hljs-string">""</span>,
   <span class="hljs-attr">port</span>: <span class="hljs-number">6379</span>,
   <span class="hljs-attr">database</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">namespace</span>: <span class="hljs-string">"resque"</span> <span class="hljs-comment">// Also allow array of strings</span>
+  <span class="hljs-attr">namespace</span>: <span class="hljs-string">"resque"</span>, <span class="hljs-comment">// Also allow array of strings</span>
 };
 
 <span class="hljs-keyword">var</span> worker = <span class="hljs-keyword">new</span> NodeResque.Worker(
@@ -288,7 +288,7 @@ boot();
   jobs
 );
 
-worker.on(<span class="hljs-string">"error"</span>, error =&gt; {
+worker.on(<span class="hljs-string">"error"</span>, (error) =&gt; {
   <span class="hljs-comment">// handler errors</span>
 });
 
@@ -308,7 +308,7 @@ worker.start();
   jobs
 );
 
-worker.on(<span class="hljs-string">"error"</span>, error =&gt; {
+worker.on(<span class="hljs-string">"error"</span>, (error) =&gt; {
   <span class="hljs-comment">// handler errors</span>
 });
 
@@ -465,13 +465,13 @@ schedule.scheduleJob(<span class="hljs-string">"10,20,30,40,50 * * * * *"</span>
   <span class="hljs-attr">add</span>: {
     <span class="hljs-attr">plugins</span>: [<span class="hljs-string">"MyPlugin"</span>],
     <span class="hljs-attr">pluginOptions</span>: {
-      <span class="hljs-attr">MyPlugin</span>: { <span class="hljs-attr">thing</span>: <span class="hljs-string">"stuff"</span> }
+      <span class="hljs-attr">MyPlugin</span>: { <span class="hljs-attr">thing</span>: <span class="hljs-string">"stuff"</span> },
     },
     <span class="hljs-attr">perform</span>: <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
       <span class="hljs-keyword">let</span> answer = a + b;
       <span class="hljs-keyword">return</span> answer;
-    }
-  }
+    },
+  },
 };</code></pre>
 				<p><strong>notes</strong></p>
 				<ul>
@@ -483,13 +483,13 @@ schedule.scheduleJob(<span class="hljs-string">"10,20,30,40,50 * * * * *"</span>
   <span class="hljs-attr">add</span>: {
     <span class="hljs-attr">plugins</span>: [<span class="hljs-built_in">require</span>(<span class="hljs-string">"Myplugin"</span>).Myplugin],
     <span class="hljs-attr">pluginOptions</span>: {
-      <span class="hljs-attr">MyPlugin</span>: { <span class="hljs-attr">thing</span>: <span class="hljs-string">"stuff"</span> }
+      <span class="hljs-attr">MyPlugin</span>: { <span class="hljs-attr">thing</span>: <span class="hljs-string">"stuff"</span> },
     },
     <span class="hljs-attr">perform</span>: <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
       <span class="hljs-keyword">let</span> answer = a + b;
       <span class="hljs-keyword">return</span> answer;
-    }
-  }
+    },
+  },
 };</code></pre>
 				<p>The plugins which are included with this package are:</p>
 				<ul>
@@ -519,7 +519,7 @@ schedule.scheduleJob(<span class="hljs-string">"10,20,30,40,50 * * * * *"</span>
 <span class="hljs-keyword">var</span> connectionDetails = {
   <span class="hljs-attr">pkg</span>: <span class="hljs-string">"ioredis"</span>,
   <span class="hljs-attr">host</span>: <span class="hljs-string">"127.0.0.1"</span>,
-  <span class="hljs-attr">password</span>: <span class="hljs-string">""</span>
+  <span class="hljs-attr">password</span>: <span class="hljs-string">""</span>,
 };
 
 <span class="hljs-keyword">var</span> multiWorker = <span class="hljs-keyword">new</span> NodeResque.MultiWorker(
@@ -529,16 +529,16 @@ schedule.scheduleJob(<span class="hljs-string">"10,20,30,40,50 * * * * *"</span>
     <span class="hljs-attr">minTaskProcessors</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">maxTaskProcessors</span>: <span class="hljs-number">100</span>,
     <span class="hljs-attr">checkTimeout</span>: <span class="hljs-number">1000</span>,
-    <span class="hljs-attr">maxEventLoopDelay</span>: <span class="hljs-number">10</span>
+    <span class="hljs-attr">maxEventLoopDelay</span>: <span class="hljs-number">10</span>,
   },
   jobs
 );
 
 <span class="hljs-comment">// normal worker emitters</span>
-multiWorker.on(<span class="hljs-string">"start"</span>, workerId =&gt; {
+multiWorker.on(<span class="hljs-string">"start"</span>, (workerId) =&gt; {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] started"</span>);
 });
-multiWorker.on(<span class="hljs-string">"end"</span>, workerId =&gt; {
+multiWorker.on(<span class="hljs-string">"end"</span>, (workerId) =&gt; {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] ended"</span>);
 });
 multiWorker.on(<span class="hljs-string">"cleaning_worker"</span>, (workerId, worker, pid) =&gt; {
@@ -603,12 +603,12 @@ multiWorker.on(<span class="hljs-string">"error"</span>, (workerId, queue, job, 
       error
   );
 });
-multiWorker.on(<span class="hljs-string">"pause"</span>, workerId =&gt; {
+multiWorker.on(<span class="hljs-string">"pause"</span>, (workerId) =&gt; {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker["</span> + workerId + <span class="hljs-string">"] paused"</span>);
 });
 
 <span class="hljs-comment">// multiWorker emitters</span>
-multiWorker.on(<span class="hljs-string">"internalError"</span>, error =&gt; {
+multiWorker.on(<span class="hljs-string">"internalError"</span>, (error) =&gt; {
   <span class="hljs-built_in">console</span>.log(error);
 });
 multiWorker.on(<span class="hljs-string">"multiWorkerAction"</span>, (verb, delay) =&gt; {
