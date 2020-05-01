@@ -118,16 +118,16 @@
       },
       <span class="hljs-attr">perform</span>: <span class="hljs-keyword">async</span> (a, b) =&gt; {
         <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
-          setTimeout(resolve, <span class="hljs-number">1000</span>);
+          <span class="hljs-keyword">set</span><span class="hljs-title">Timeout</span>(<span class="hljs-params">resolve, <span class="hljs-number">1000</span></span>);
         });
-        jobsToComplete--;
-        tryShutdown();
+        <span class="hljs-title">jobsToComplete</span>--;
+        <span class="hljs-title">tryShutdown</span>();
 
-        <span class="hljs-keyword">const</span> answer = a + b;
-        <span class="hljs-keyword">return</span> answer;
+        <span class="hljs-title">const</span> <span class="hljs-title">answer</span> = <span class="hljs-title">a</span> + <span class="hljs-title">b</span>;
+        <span class="hljs-title">return</span> <span class="hljs-title">answer</span>;
       },
     },
-    <span class="hljs-attr">subtract</span>: {
+    <span class="hljs-title">subtract</span>: {
       <span class="hljs-attr">perform</span>: <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
         jobsToComplete--;
         tryShutdown();
@@ -142,38 +142,38 @@
   <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">tryShutdown</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">if</span> (jobsToComplete === <span class="hljs-number">0</span>) {
       <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
-        setTimeout(resolve, <span class="hljs-number">500</span>);
+        <span class="hljs-keyword">set</span><span class="hljs-title">Timeout</span>(<span class="hljs-params">resolve, <span class="hljs-number">500</span></span>);
       });
-      <span class="hljs-keyword">await</span> scheduler.end();
-      <span class="hljs-keyword">await</span> worker.end();
-      process.exit();
+      <span class="hljs-title">await</span> <span class="hljs-title">scheduler</span>.<span class="hljs-title">end</span>();
+      <span class="hljs-title">await</span> <span class="hljs-title">worker</span>.<span class="hljs-title">end</span>();
+      <span class="hljs-title">process</span>.<span class="hljs-title">exit</span>();
     }
   }
 
-  <span class="hljs-comment">// /////////////////</span>
-  <span class="hljs-comment">// START A WORKER //</span>
-  <span class="hljs-comment">// /////////////////</span>
+  // /////////////////
+  // <span class="hljs-title">START</span> <span class="hljs-title">A</span> <span class="hljs-title">WORKER</span> //
+  // /////////////////
 
-  <span class="hljs-keyword">const</span> worker = <span class="hljs-keyword">new</span> Worker(
-    { <span class="hljs-attr">connection</span>: connectionDetails, <span class="hljs-attr">queues</span>: [<span class="hljs-string">"math"</span>, <span class="hljs-string">"otherQueue"</span>] },
+  <span class="hljs-title">const</span> <span class="hljs-title">worker</span> = <span class="hljs-title">new</span> <span class="hljs-title">Worker</span>(<span class="hljs-params">
+    { connection: connectionDetails, queues: [<span class="hljs-string">"math"</span>, <span class="hljs-string">"otherQueue"</span>] },
     jobs
-  );
-  <span class="hljs-keyword">await</span> worker.connect();
-  worker.start();
+  </span>);
+  <span class="hljs-title">await</span> <span class="hljs-title">worker</span>.<span class="hljs-title">connect</span>();
+  <span class="hljs-title">worker</span>.<span class="hljs-title">start</span>();
 
-  <span class="hljs-comment">// ////////////////////</span>
-  <span class="hljs-comment">// START A SCHEDULER //</span>
-  <span class="hljs-comment">// ////////////////////</span>
+  // ////////////////////
+  // <span class="hljs-title">START</span> <span class="hljs-title">A</span> <span class="hljs-title">SCHEDULER</span> //
+  // ////////////////////
 
-  <span class="hljs-keyword">const</span> scheduler = <span class="hljs-keyword">new</span> Scheduler({ <span class="hljs-attr">connection</span>: connectionDetails });
-  <span class="hljs-keyword">await</span> scheduler.connect();
-  scheduler.start();
+  <span class="hljs-title">const</span> <span class="hljs-title">scheduler</span> = <span class="hljs-title">new</span> <span class="hljs-title">Scheduler</span>(<span class="hljs-params">{ connection: connectionDetails }</span>);
+  <span class="hljs-title">await</span> <span class="hljs-title">scheduler</span>.<span class="hljs-title">connect</span>();
+  <span class="hljs-title">scheduler</span>.<span class="hljs-title">start</span>();
 
-  <span class="hljs-comment">// //////////////////////</span>
-  <span class="hljs-comment">// REGISTER FOR EVENTS //</span>
-  <span class="hljs-comment">// //////////////////////</span>
+  // //////////////////////
+  // <span class="hljs-title">REGISTER</span> <span class="hljs-title">FOR</span> <span class="hljs-title">EVENTS</span> //
+  // //////////////////////
 
-  worker.on(<span class="hljs-string">"start"</span>, () =&gt; {
+  <span class="hljs-title">worker</span>.<span class="hljs-title">on</span>(<span class="hljs-params"><span class="hljs-string">"start"</span>, (</span>) =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"worker started"</span>);
   });
   worker.on(<span class="hljs-string">"end"</span>, () =&gt; {
