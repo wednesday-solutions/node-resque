@@ -265,14 +265,21 @@ boot();
 				<a href="#configuration-options" id="configuration-options" style="color: inherit; text-decoration: none;">
 					<h2>Configuration Options:</h2>
 				</a>
-				<p><code>new queue</code> requires only the &quot;queue&quot; variable to be set. You can also pass the <code>jobs</code> hash to it.</p>
-				<p><code>new worker</code> has some additional options:</p>
+				<ul>
+					<li><code>new queue</code> requires only the &quot;queue&quot; variable to be set. You can also pass the <code>jobs</code> hash to it.</li>
+					<li><code>new worker</code> has some additional options:</li>
+				</ul>
 				<pre><code class="language-javascript">options = {
   <span class="hljs-attr">looping</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-attr">timeout</span>: <span class="hljs-number">5000</span>,
   <span class="hljs-attr">queues</span>: <span class="hljs-string">"*"</span>,
   <span class="hljs-attr">name</span>: os.hostname() + <span class="hljs-string">":"</span> + process.pid,
 };</code></pre>
+				<p>Note that when using <code>&quot;*&quot;</code> queue:</p>
+				<ul>
+					<li>there&#39;s minor performance impact for checking the queues</li>
+					<li>queues are processed in undefined order</li>
+				</ul>
 				<p>The configuration hash passed to <code>new NodeResque.Worker</code>, <code>new NodeResque.Scheduler</code> or <code>new NodeResque.Queue</code> can also take a <code>connection</code> option.</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> connectionDetails = {
   <span class="hljs-attr">pkg</span>: <span class="hljs-string">"ioredis"</span>,
