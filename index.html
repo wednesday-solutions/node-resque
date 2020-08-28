@@ -262,6 +262,21 @@ boot();
 <span class="hljs-comment">// await queue.end()</span>
 <span class="hljs-comment">// await scheduler.end()</span>
 <span class="hljs-comment">// await worker.end()</span></code></pre>
+				<a href="#node-resque-interfaces-queue-worker-and-scheduler" id="node-resque-interfaces-queue-worker-and-scheduler" style="color: inherit; text-decoration: none;">
+					<h2>Node Resque Interfaces: Queue, Worker, and Scheduler</h2>
+				</a>
+				<p>There are 3 main classes in <code>node-resque</code>: Queue, Worker, and Scheduler</p>
+				<ul>
+					<li><strong>Queue</strong>: This is the interface your program uses to interact with resque&#39;s queues - to insert jobs, check on the performance of things, and generally administer your background jobs.</li>
+					<li><strong>Worker</strong>: This interface is how jobs get processed. Workers are started and then they check for jobs enqueued into various queues and complete them. If there&#39;s an error, they write to the <code>error</code> queue.<ul>
+							<li>There&#39;s a special class called <code>multiWorker</code> in Node Resque which will run many workers at once for you (see below).</li>
+						</ul>
+					</li>
+					<li><strong>Scheduler</strong>: The scheduler can be thought of as the coordinator for Node Resque. It is primarily in charge of checking when jobs told to run later (with <code>queue.enqueueIn</code> or <code>queue.enqueueAt</code>) should be processed, but it performs some other jobs like checking for &#39;stuck&#39; workers and general cluster cleanup.<ul>
+							<li>You can (and should) run many instances of the scheduler class at once, but only one will be elected to be the &#39;leader&#39;, and actually do work.</li>
+						</ul>
+					</li>
+				</ul>
 				<a href="#configuration-options" id="configuration-options" style="color: inherit; text-decoration: none;">
 					<h2>Configuration Options:</h2>
 				</a>
