@@ -321,9 +321,13 @@ worker.start();
 <span class="hljs-comment">// await worker.end()</span></code></pre>
 				<p>You can also pass redis client directly.</p>
 				<pre><code class="language-javascript"><span class="hljs-comment">// assume you already initialized redis client before</span>
+<span class="hljs-comment">// the "redis" key can be IORedis.Redis or IORedis.Cluster instance</span>
 
 <span class="hljs-keyword">var</span> redisClient = <span class="hljs-keyword">new</span> Redis();
 <span class="hljs-keyword">var</span> connectionDetails = { <span class="hljs-attr">redis</span>: redisClient };
+
+<span class="hljs-keyword">var</span> redisCluster = <span class="hljs-keyword">new</span> Cluster();
+<span class="hljs-keyword">var</span> connectionDetails = { <span class="hljs-attr">redis</span>: redisCluster };
 
 <span class="hljs-keyword">var</span> worker = <span class="hljs-keyword">new</span> NodeResque.Worker(
   { <span class="hljs-attr">connection</span>: connectionDetails, <span class="hljs-attr">queues</span>: <span class="hljs-string">"math"</span> },
