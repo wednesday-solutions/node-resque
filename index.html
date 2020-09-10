@@ -296,7 +296,7 @@ boot();
 					<li>queues are processed in undefined order</li>
 				</ul>
 				<p>The configuration hash passed to <code>new NodeResque.Worker</code>, <code>new NodeResque.Scheduler</code> or <code>new NodeResque.Queue</code> can also take a <code>connection</code> option.</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> connectionDetails = {
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> connectionDetails = {
   <span class="hljs-attr">pkg</span>: <span class="hljs-string">"ioredis"</span>,
   <span class="hljs-attr">host</span>: <span class="hljs-string">"127.0.0.1"</span>,
   <span class="hljs-attr">password</span>: <span class="hljs-string">""</span>,
@@ -305,7 +305,7 @@ boot();
   <span class="hljs-attr">namespace</span>: <span class="hljs-string">"resque"</span>, <span class="hljs-comment">// Also allow array of strings</span>
 };
 
-<span class="hljs-keyword">var</span> worker = <span class="hljs-keyword">new</span> NodeResque.Worker(
+<span class="hljs-keyword">const</span> worker = <span class="hljs-keyword">new</span> NodeResque.Worker(
   { <span class="hljs-attr">connection</span>: connectionDetails, <span class="hljs-attr">queues</span>: <span class="hljs-string">"math"</span> },
   jobs
 );
@@ -323,13 +323,15 @@ worker.start();
 				<pre><code class="language-javascript"><span class="hljs-comment">// assume you already initialized redis client before</span>
 <span class="hljs-comment">// the "redis" key can be IORedis.Redis or IORedis.Cluster instance</span>
 
-<span class="hljs-keyword">var</span> redisClient = <span class="hljs-keyword">new</span> Redis();
-<span class="hljs-keyword">var</span> connectionDetails = { <span class="hljs-attr">redis</span>: redisClient };
+<span class="hljs-keyword">const</span> redisClient = <span class="hljs-keyword">new</span> Redis();
+<span class="hljs-keyword">const</span> connectionDetails = { <span class="hljs-attr">redis</span>: redisClient };
 
-<span class="hljs-keyword">var</span> redisCluster = <span class="hljs-keyword">new</span> Cluster();
-<span class="hljs-keyword">var</span> connectionDetails = { <span class="hljs-attr">redis</span>: redisCluster };
+<span class="hljs-comment">// or</span>
 
-<span class="hljs-keyword">var</span> worker = <span class="hljs-keyword">new</span> NodeResque.Worker(
+<span class="hljs-keyword">const</span> redisCluster = <span class="hljs-keyword">new</span> Cluster();
+<span class="hljs-keyword">const</span> connectionDetails = { <span class="hljs-attr">redis</span>: redisCluster };
+
+<span class="hljs-keyword">const</span> worker = <span class="hljs-keyword">new</span> NodeResque.Worker(
   { <span class="hljs-attr">connection</span>: connectionDetails, <span class="hljs-attr">queues</span>: <span class="hljs-string">"math"</span> },
   jobs
 );
@@ -342,7 +344,7 @@ worker.on(<span class="hljs-string">"error"</span>, (error) =&gt; {
 worker.start();
 
 <span class="hljs-comment">// and when you are done</span>
-<span class="hljs-comment">// await worker.end()</span></code></pre>
+<span class="hljs-keyword">await</span> worker.end();</code></pre>
 				<a href="#notes" id="notes" style="color: inherit; text-decoration: none;">
 					<h2>Notes</h2>
 				</a>
@@ -361,8 +363,8 @@ worker.start();
 					<li>For the Retry plugin, a success message will be emitted from the worker on each attempt (even if the job fails) except the final retry. The final retry will emit a failure message instead.</li>
 				</ul>
 				<p>If you want to learn more about running Node-Resque with docker, please view the examples here: <a href="https://github.com/actionhero/node-resque/tree/master/examples/docker">https://github.com/actionhero/node-resque/tree/master/examples/docker</a></p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> name = os.hostname() + <span class="hljs-string">":"</span> + process.pid + <span class="hljs-string">"+"</span> + counter;
-<span class="hljs-keyword">var</span> worker = <span class="hljs-keyword">new</span> NodeResque.Worker(
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> name = os.hostname() + <span class="hljs-string">":"</span> + process.pid + <span class="hljs-string">"+"</span> + counter;
+<span class="hljs-keyword">const</span> worker = <span class="hljs-keyword">new</span> NodeResque.Worker(
   { <span class="hljs-attr">connection</span>: connectionDetails, <span class="hljs-attr">queues</span>: <span class="hljs-string">"math"</span>, <span class="hljs-attr">name</span>: name },
   jobs
 );</code></pre>
@@ -510,7 +512,7 @@ schedule.scheduleJob(<span class="hljs-string">"10,20,30,40,50 * * * * *"</span>
 					<li>If you are writing a plugin to deal with errors which may occur during your resque job, you can inspect and modify <code>this.worker.error</code> in your plugin. If <code>this.worker.error</code> is null, no error will be logged in the resque error queue.</li>
 					<li>There are a few included plugins, all in the lib/plugins/* directory. You can rewrite you own and include it like this:</li>
 				</ul>
-				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> jobs = {
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> jobs = {
   <span class="hljs-attr">add</span>: {
     <span class="hljs-attr">plugins</span>: [<span class="hljs-built_in">require</span>(<span class="hljs-string">"Myplugin"</span>).Myplugin],
     <span class="hljs-attr">pluginOptions</span>: {
@@ -545,15 +547,15 @@ schedule.scheduleJob(<span class="hljs-string">"10,20,30,40,50 * * * * *"</span>
 					<h2>Multi Worker</h2>
 				</a>
 				<p><code>node-resque</code> provides a wrapper around the <code>Worker</code> class which will auto-scale the number of resque workers. This will process more than one job at a time as long as there is idle CPU within the event loop. For example, if you have a slow job that sends email via SMTP (with low overhead), we can process many jobs at a time, but if you have a math-heavy operation, we&#39;ll stick to 1. The <code>MultiWorker</code> handles this by spawning more and more node-resque workers and managing the pool.</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> NodeResque = <span class="hljs-built_in">require</span>(__dirname + <span class="hljs-string">"/../index.js"</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> NodeResque = <span class="hljs-built_in">require</span>(<span class="hljs-string">"node-resque"</span>);
 
-<span class="hljs-keyword">var</span> connectionDetails = {
+<span class="hljs-keyword">const</span> connectionDetails = {
   <span class="hljs-attr">pkg</span>: <span class="hljs-string">"ioredis"</span>,
   <span class="hljs-attr">host</span>: <span class="hljs-string">"127.0.0.1"</span>,
   <span class="hljs-attr">password</span>: <span class="hljs-string">""</span>,
 };
 
-<span class="hljs-keyword">var</span> multiWorker = <span class="hljs-keyword">new</span> NodeResque.MultiWorker(
+<span class="hljs-keyword">const</span> multiWorker = <span class="hljs-keyword">new</span> NodeResque.MultiWorker(
   {
     <span class="hljs-attr">connection</span>: connectionDetails,
     <span class="hljs-attr">queues</span>: [<span class="hljs-string">"slowQueue"</span>],
