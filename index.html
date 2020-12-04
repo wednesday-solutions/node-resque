@@ -470,27 +470,27 @@ schedule.scheduleJob(<span class="hljs-string">&quot;10,20,30,40,50 * * * * *&qu
 				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { Plugin } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-resque&quot;</span>);
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPlugin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Plugin</span> </span>{
-  <span class="hljs-keyword">constructor</span>(...args) {
+  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">...args</span>)</span> {
     <span class="hljs-comment">// @ts-ignore</span>
     <span class="hljs-built_in">super</span>(...args);
     <span class="hljs-built_in">this</span>.name = <span class="hljs-string">&quot;MyPlugin&quot;</span>;
   }
 
-  beforeEnqueue() {
+  <span class="hljs-function"><span class="hljs-title">beforeEnqueue</span>(<span class="hljs-params"></span>)</span> {
     <span class="hljs-comment">// console.log(&quot;** beforeEnqueue&quot;)</span>
     <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <span class="hljs-comment">// should the job be enqueued?</span>
   }
 
-  afterEnqueue() {
+  <span class="hljs-function"><span class="hljs-title">afterEnqueue</span>(<span class="hljs-params"></span>)</span> {
     <span class="hljs-comment">// console.log(&quot;** afterEnqueue&quot;)</span>
   }
 
-  beforePerform() {
+  <span class="hljs-function"><span class="hljs-title">beforePerform</span>(<span class="hljs-params"></span>)</span> {
     <span class="hljs-comment">// console.log(&quot;** beforePerform&quot;)</span>
     <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <span class="hljs-comment">// should the job be run?</span>
   }
 
-  afterPerform() {
+  <span class="hljs-function"><span class="hljs-title">afterPerform</span>(<span class="hljs-params"></span>)</span> {
     <span class="hljs-comment">// console.log(&quot;** afterPerform&quot;)</span>
   }
 }</code></pre>
