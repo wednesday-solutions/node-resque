@@ -87,7 +87,7 @@
 					<h2>Usage</h2>
 				</a>
 				<p>I learn best by examples:</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { Worker, Scheduler, Queue } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;node-resque&quot;</span>;
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { Worker, Plugins, Scheduler, Queue } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;node-resque&quot;</span>;
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">boot</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-comment">// ////////////////////////</span>
@@ -113,7 +113,7 @@
 
   <span class="hljs-keyword">const</span> jobs = {
     <span class="hljs-attr">add</span>: {
-      <span class="hljs-attr">plugins</span>: [<span class="hljs-string">&quot;JobLock&quot;</span>],
+      <span class="hljs-attr">plugins</span>: [Plugins.JobLock],
       <span class="hljs-attr">pluginOptions</span>: {
         <span class="hljs-attr">JobLock</span>: { <span class="hljs-attr">reEnqueue</span>: <span class="hljs-literal">true</span> },
       },
@@ -497,7 +497,7 @@ schedule.scheduleJob(<span class="hljs-string">&quot;10,20,30,40,50 * * * * *&qu
 				<p>And then your plugin can be invoked within a job like this:</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> jobs = {
   <span class="hljs-attr">add</span>: {
-    <span class="hljs-attr">plugins</span>: [<span class="hljs-string">&quot;MyPlugin&quot;</span>],
+    <span class="hljs-attr">plugins</span>: [MyPlugin],
     <span class="hljs-attr">pluginOptions</span>: {
       <span class="hljs-attr">MyPlugin</span>: { <span class="hljs-attr">thing</span>: <span class="hljs-string">&quot;stuff&quot;</span> },
     },
@@ -511,7 +511,7 @@ schedule.scheduleJob(<span class="hljs-string">&quot;10,20,30,40,50 * * * * *&qu
 				<ul>
 					<li>You need to return <code>true</code> or <code>false</code> on the before hooks. <code>true</code> indicates that the action should continue, and <code>false</code> prevents it. This is called <code>toRun</code>.</li>
 					<li>If you are writing a plugin to deal with errors which may occur during your resque job, you can inspect and modify <code>this.worker.error</code> in your plugin. If <code>this.worker.error</code> is null, no error will be logged in the resque error queue.</li>
-					<li>There are a few included plugins, all in the lib/plugins/* directory. You can rewrite you own and include it like this:</li>
+					<li>There are a few included plugins, all in the <code>src/plugins/*</code> directory. You can write your own and include it like this:</li>
 				</ul>
 				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> jobs = {
   <span class="hljs-attr">add</span>: {
@@ -726,6 +726,9 @@ multiWorker.start();</code></pre>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_plugins_retry_.html">&quot;plugins/<wbr>Retry&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_plugins_index_.html">&quot;plugins/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_types_errorpayload_.html">&quot;types/error<wbr>Payload&quot;</a>
