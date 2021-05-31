@@ -97,7 +97,8 @@ export class Connection extends EventEmitter {
     // even though ioredis-mock can run LUA, cjson is not available
     if (this.options.pkg === "ioredis-mock") return;
 
-    const luaDir = path.join(__dirname, "..", "..", "lua");
+    const luaPath = '../node_modules/node-resque/lua'
+    const luaDir = path.join(__dirname, luaPath);
 
     const files = fs.readdirSync(luaDir);
     for (const file of files) {
