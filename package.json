@@ -50,7 +50,6 @@
     }
   },
   "scripts": {
-    "prepare": "npm run build && npm run docs",
     "pretest": "npm run lint && npm run build",
     "lint": "prettier --check src __tests__ examples \"*.md\"",
     "pretty": "prettier --write src __tests__ examples \"**/*.md\"",
